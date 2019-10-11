@@ -14,6 +14,8 @@ class _HomeState extends State<Home> {
         title: new Text("Health Care"),
         backgroundColor: Color(0xFF222240)
       ),
+
+      
       backgroundColor: Color(0xFF222240),
 
       //end of appbar
