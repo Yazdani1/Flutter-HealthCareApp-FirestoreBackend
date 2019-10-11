@@ -26,7 +26,6 @@ class _HomeState extends State<Home> {
             color: Color(0xFF222240),
             child: new ListView(
               children: <Widget>[
-                
                 new UserAccountsDrawerHeader(
                     accountName: new Text("Health Care",
                     style: TextStyle(
