@@ -49,7 +49,6 @@ class _HomeState extends State<Home> {
             decoration: new BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0)
             ),
-
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: Carousel(
