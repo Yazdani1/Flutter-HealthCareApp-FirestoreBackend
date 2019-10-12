@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
             decoration: new BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0)
             ),
-            
+
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: Carousel(
@@ -68,7 +68,6 @@ class _HomeState extends State<Home> {
                   overlayShadow: true,
                   overlayShadowColors: Colors.black.withOpacity(0.4),
                   overlayShadowSize: 10.0,
-
                   images: [
                     NetworkImage('https://images.pexels.com/photos/305564/pexels-photo-305564.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
                     NetworkImage('https://images.pexels.com/photos/139398/thermometer-headache-pain-pills-139398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
