@@ -133,7 +133,7 @@ class _HomeState extends State<Home> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0),
                           ),
-                          
+
                           child: new Container(
                             height: 130.0,
                             width: 300.0,
@@ -173,15 +173,12 @@ class _HomeState extends State<Home> {
                                             color: Colors.white
                                         ),
                                       ),
-
                                       new SizedBox(height: 10.0,),
-
                                       Align(
                                         alignment: Alignment.bottomLeft,
                                         child: new Container(
                                           child: new Row(
                                             children: <Widget>[
-
                                               new Icon(Icons.remove_red_eye,
                                               color: Colors.deepOrange,
                                               ),
