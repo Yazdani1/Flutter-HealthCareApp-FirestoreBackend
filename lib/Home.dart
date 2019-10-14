@@ -128,10 +128,12 @@ class _HomeState extends State<Home> {
                       itemBuilder: (context,index){
                         return Card(
                           elevation: 10.0,
+                          margin: EdgeInsets.only(left: 10.0),
                           color: Color(0xFF262724),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0),
                           ),
+                          
                           child: new Container(
                             height: 130.0,
                             width: 300.0,
@@ -141,7 +143,7 @@ class _HomeState extends State<Home> {
                                   flex: 1,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(15.0),
-                                    child: new Image.network("https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                                    child: new Image.network(snapshot[index].data["image"],
                                       height: 130.0,
                                       fit: BoxFit.cover,
                                     ),
@@ -174,26 +176,26 @@ class _HomeState extends State<Home> {
 
                                       new SizedBox(height: 10.0,),
 
-                                      new Container(
-                                        child: new Row(
-                                          children: <Widget>[
+                                      Align(
+                                        alignment: Alignment.bottomLeft,
+                                        child: new Container(
+                                          child: new Row(
+                                            children: <Widget>[
 
-                                            new Icon(Icons.remove_red_eye,
-                                            color: Colors.deepOrange,
-                                            ),
+                                              new Icon(Icons.remove_red_eye,
+                                              color: Colors.deepOrange,
+                                              ),
 
-                                            new SizedBox(width: 5.0,),
+                                              new SizedBox(width: 5.0,),
 
-                                            new Text(snapshot[index].data["view"],
-                                            style: TextStyle(
-                                              fontSize: 16.0,
-                                              color: Colors.white
-                                            ),
-                                            )
-
-
-
-                                          ],
+                                              new Text(snapshot[index].data["view"],
+                                              style: TextStyle(
+                                                fontSize: 16.0,
+                                                color: Colors.white
+                                              ),
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       )
 
