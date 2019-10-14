@@ -1,12 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'dart:async';
 
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => new _HomeState();
 }
 class _HomeState extends State<Home> {
+
+  StreamSubscription<QuerySnapshot>subscription;
+  List<DocumentSnapshot>snapshot;
+
+  CollectionReference collectionReference=Firestore.instance.collection("TopHealthTips");
+
+  @override
+  void initState() {
+
+    subscription=collectionReference.snapshots().listen((datasnap){
+      setState(() {
+          snapshot=datasnap.documents;
+      });
+
+    });
+
+    super.initState();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -77,6 +99,125 @@ class _HomeState extends State<Home> {
               ),
           ),
           //end first container -- carousul slider
+
+          //second container health tips
+
+          new Container(
+            margin: EdgeInsets.all(5.0),
+            height: 190.0,
+            child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+
+                new Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: new Text("Top Health Tips",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white
+                  ),
+                  ),
+                ),
+                new SizedBox(height: 5.0,),
+
+                new Container(
+                  height: 130.0,
+                  child: new ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: snapshot.length,
+                      itemBuilder: (context,index){
+                        return Card(
+                          elevation: 10.0,
+                          color: Color(0xFF262724),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: new Container(
+                            height: 130.0,
+                            width: 300.0,
+                            child: new Row(
+                              children: <Widget>[
+                                new Expanded(
+                                  flex: 1,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    child: new Image.network("https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                                      height: 130.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                new SizedBox(width: 10.0,),
+                                new Expanded(
+                                  flex: 3,
+                                  child: new Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(top:5.0),
+                                        child: new Text(snapshot[index].data["title"],
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              fontSize: 18.0,
+                                              color: Colors.white
+                                          ),
+                                        ),
+                                      ),
+                                      new SizedBox(height: 5.0,),
+                                      new Text(snapshot[index].data["content"],
+                                        maxLines: 4,
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            color: Colors.white
+                                        ),
+                                      ),
+
+                                      new SizedBox(height: 10.0,),
+
+                                      new Container(
+                                        child: new Row(
+                                          children: <Widget>[
+
+                                            new Icon(Icons.remove_red_eye,
+                                            color: Colors.deepOrange,
+                                            ),
+
+                                            new SizedBox(width: 5.0,),
+
+                                            new Text(snapshot[index].data["view"],
+                                            style: TextStyle(
+                                              fontSize: 16.0,
+                                              color: Colors.white
+                                            ),
+                                            )
+
+
+
+                                          ],
+                                        ),
+                                      )
+
+
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+
+                      }
+                  ),
+
+                )
+
+
+
+
+              ],
+            ),
+          ),
+          //end second container health tips
 
 
 
