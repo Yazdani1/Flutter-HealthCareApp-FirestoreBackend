@@ -173,6 +173,8 @@ class _HomeState extends State<Home> {
                                             color: Colors.white
                                         ),
                                       ),
+
+                                      
                                       new SizedBox(height: 10.0,),
                                       Align(
                                         alignment: Alignment.bottomLeft,
