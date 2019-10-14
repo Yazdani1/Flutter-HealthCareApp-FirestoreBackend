@@ -165,7 +165,6 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                       ),
-                                      
                                       new SizedBox(height: 5.0,),
                                       new Text(snapshot[index].data["content"],
                                         maxLines: 4,
