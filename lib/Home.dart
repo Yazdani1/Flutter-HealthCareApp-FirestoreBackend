@@ -209,9 +209,6 @@ class _HomeState extends State<Home> {
             ),
           ),
           //end second container health tips
-
-
-
         ],
       ),
     );
