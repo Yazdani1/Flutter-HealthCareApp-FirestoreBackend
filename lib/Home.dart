@@ -173,7 +173,7 @@ class _HomeState extends State<Home> {
                                             color: Colors.white
                                         ),
                                       ),
-                                      
+
                                       new SizedBox(height: 10.0,),
                                       Align(
                                         alignment: Alignment.bottomLeft,
@@ -183,9 +183,7 @@ class _HomeState extends State<Home> {
                                               new Icon(Icons.remove_red_eye,
                                               color: Colors.deepOrange,
                                               ),
-
                                               new SizedBox(width: 5.0,),
-
                                               new Text(snapshot[index].data["view"],
                                               style: TextStyle(
                                                 fontSize: 16.0,
