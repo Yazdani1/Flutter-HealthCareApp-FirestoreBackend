@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'dart:async';
+import 'TopHealthTipsDetails.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -157,11 +158,16 @@ class _HomeState extends State<Home> {
                                     children: <Widget>[
                                       Padding(
                                         padding: const EdgeInsets.only(top:5.0),
-                                        child: new Text(snapshot[index].data["title"],
-                                          maxLines: 1,
-                                          style: TextStyle(
-                                              fontSize: 18.0,
-                                              color: Colors.white
+                                        child: InkWell(
+                                          onTap: (){
+                                            Navigator.of(context).push(new MaterialPageRoute(builder: (context)=>TopHealthTipsDetails(snapshot[index])));
+                                          },
+                                          child: new Text(snapshot[index].data["title"],
+                                            maxLines: 1,
+                                            style: TextStyle(
+                                                fontSize: 18.0,
+                                                color: Colors.white
+                                            ),
                                           ),
                                         ),
                                       ),
