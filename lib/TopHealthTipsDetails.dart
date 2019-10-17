@@ -38,9 +38,91 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
               ),
             ),
           ),
-
           //first container end
 
+          new SizedBox(height: 10.0,),
+
+          //second container start
+
+          new Container(
+            margin: EdgeInsets.all(10.0),
+            child: Card(
+              elevation: 10.0,
+              color: Color(0xFF272722),
+              child: new Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+
+                  new Container(
+                    margin: EdgeInsets.all(8.0),
+                    child: new Column(
+                      children: <Widget>[
+
+                        new Container(
+                          child: new CircleAvatar(
+                            child: Text(widget.snapshot.data["title"][0],
+                            ),
+                            backgroundColor: Colors.deepOrange,
+                            foregroundColor: Colors.white,
+                          ),
+                        ),
+                        new SizedBox(height: 5.0,),
+                        
+                        new Container(
+                          child: new Row(
+                            children: <Widget>[
+                              
+                              new Icon(Icons.remove_red_eye,
+                              color: Colors.deepOrange,
+                              ),
+                              
+                              new SizedBox(width: 5.0,),
+                              
+                              new Text(widget.snapshot.data["view"],
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white
+                              ),
+                              )
+                              
+                              
+                            ],
+                          ),
+                        )
+                        
+
+
+
+                      ],
+                    ),
+                  ),
+
+                  new SizedBox(width: 10.0,),
+
+                  new Container(
+                    margin: EdgeInsets.only(top: 10.0),
+                    width: MediaQuery.of(context).size.width/1.4,
+                    child: Text(widget.snapshot.data["title"],
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white
+                    ),
+                    ),
+                  )
+
+                ],
+              ),
+            ),
+          ),
+
+          //second container end
+
+          new SizedBox(height: 10.0,),
+
+          //third container start
+
+
+          //third container end
 
         ],
       ),
