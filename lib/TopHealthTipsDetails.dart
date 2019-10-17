@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 
 
+
 class TopHealthTipsDetails extends StatefulWidget {
   
   DocumentSnapshot snapshot;
@@ -66,8 +67,8 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                             foregroundColor: Colors.white,
                           ),
                         ),
-                        new SizedBox(height: 5.0,),
-                        
+                        new SizedBox(height: 6.0,),
+
                         new Container(
                           child: new Row(
                             children: <Widget>[
@@ -101,12 +102,15 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
 
                   new Container(
                     margin: EdgeInsets.only(top: 10.0),
-                    width: MediaQuery.of(context).size.width/1.4,
-                    child: Text(widget.snapshot.data["title"],
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white
-                    ),
+                    width: MediaQuery.of(context).size.width/1.5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.snapshot.data["title"],
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white
+                      ),
+                      ),
                     ),
                   )
 
@@ -117,10 +121,29 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
 
           //second container end
 
-          new SizedBox(height: 10.0,),
+          new SizedBox(height: 6.0,),
 
           //third container start
 
+          new Container(
+            margin: EdgeInsets.only(left:10.0),
+            child: new Card(
+              color: Color(0xFF272722),
+              shape: new RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)
+              ),
+              elevation: 10.0,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: new Text(widget.snapshot.data["content"],
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.white
+                ),
+                ),
+              ),
+            ),
+          )
 
           //third container end
 

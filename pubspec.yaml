@@ -26,6 +26,7 @@ dependencies:
   cloud_firestore: ^0.12.9+5
   carousel_pro: ^1.0.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
