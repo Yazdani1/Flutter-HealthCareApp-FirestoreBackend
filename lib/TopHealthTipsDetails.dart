@@ -12,7 +12,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      
+
     );
   }
 }
