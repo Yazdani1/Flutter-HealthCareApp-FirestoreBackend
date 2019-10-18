@@ -90,16 +90,11 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                             ],
                           ),
                         )
-                        
-
-
 
                       ],
                     ),
                   ),
-
                   new SizedBox(width: 10.0,),
-
                   new Container(
                     margin: EdgeInsets.only(top: 10.0),
                     width: MediaQuery.of(context).size.width/1.5,
@@ -118,7 +113,6 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
               ),
             ),
           ),
-
           //second container end
 
           new SizedBox(height: 6.0,),
