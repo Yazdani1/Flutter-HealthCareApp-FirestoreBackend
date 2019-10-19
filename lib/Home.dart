@@ -232,47 +232,88 @@ class _HomeState extends State<Home> {
 
           //start third container
           new Container(
-            margin: EdgeInsets.all(10.0),
-            height: 250.0,
-            child: new ListView.builder(
-              scrollDirection: Axis.horizontal,
-                itemCount: dtsnapshot.length,
-              itemBuilder: (context,index){
-                  return Card(
-                    elevation: 10.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0)
-                    ),
-                    color: Color(0xFF272722),
-                    child: new Container(
-                      width: 200.0,
-                      child: new Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
+            margin: EdgeInsets.only(left: 5.0,top: 10.0),
+            height: 300.0,
+            child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
 
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(15.0),
-                            child: new Image.network(dtsnapshot[index].data["image"],
-                              height: 150.0,
-                              fit: BoxFit.cover,
+                new Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: new Text("Top Doctor List",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white
+                    ),
+                    ),
+                  ),
+                ),
+                new SizedBox(height: 5.0,),
+
+                new Container(
+                  height: 230.0,
+                  child: new ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: dtsnapshot.length,
+                      itemBuilder: (context,index){
+                        return Card(
+                          elevation: 10.0,
+                          margin: EdgeInsets.only(left: 10.0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0)
+                          ),
+                          color: Color(0xFF272B4A),
+                          child: new Container(
+                            width: 220.0,
+                            child: new Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+
+
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  child: new Image.network(dtsnapshot[index].data["image"],
+                                    height: 130.0,
+                                    width: 220.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+
+                                new SizedBox(height: 6.0,),
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: new Text(dtsnapshot[index].data["title"],
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.white
+                                    ),
+                                  ),
+                                ),
+
+                                new SizedBox(height: 5.0,),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: new Text(dtsnapshot[index].data["type"],
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.amberAccent
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          new SizedBox(height: 6.0,),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: new Text(dtsnapshot[index].data["title"],
-                              maxLines: 1,
-                              style: TextStyle(
-                                fontSize: 19.0,
-                                color: Colors.white
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  );
-              }
+                        );
+                      }
+                  ),
+                )
+
+
+              ],
             ),
           ),
           //end third container
