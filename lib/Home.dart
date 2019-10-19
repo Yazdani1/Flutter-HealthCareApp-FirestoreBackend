@@ -129,7 +129,7 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.all(10.0),
                   child: new Text("Top Health Tips",
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 18.0,
                     color: Colors.white
                   ),
                   ),
@@ -229,7 +229,6 @@ class _HomeState extends State<Home> {
             ),
           ),
           //end second container health tips
-
           //start third container
           new Container(
             margin: EdgeInsets.only(left: 5.0,top: 10.0),
@@ -311,7 +310,6 @@ class _HomeState extends State<Home> {
                       }
                   ),
                 )
-
 
               ],
             ),
