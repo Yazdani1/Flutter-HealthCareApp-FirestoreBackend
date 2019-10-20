@@ -248,8 +248,6 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-
-                
                 new SizedBox(height: 5.0,),
                 new Container(
                   height: 230.0,
@@ -304,6 +302,8 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
+
+
                               ],
                             ),
                           ),
@@ -316,10 +316,26 @@ class _HomeState extends State<Home> {
             ),
           ),
           //end third container
-
-
         ],
       ),
+
+      bottomNavigationBar: Theme(
+
+      data: Theme.of(context).copyWith(
+            canvasColor: Color(0xFF23235A),
+        ),
+
+        child: new BottomNavigationBar(
+
+            items: [
+              BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.white,),title: new Text("Home",style: TextStyle(color: Colors.white),)),
+              BottomNavigationBarItem(icon: Icon(Icons.dock,color: Colors.white,),title: Text("Health Tips",style: TextStyle(color: Colors.white))),
+              BottomNavigationBarItem(icon: Icon(Icons.remove_red_eye,color: Colors.white,),title: Text("Doctor List",style: TextStyle(color: Colors.white)))
+            ]
+        ),
+      ),
+
+
     );
   }
 }
