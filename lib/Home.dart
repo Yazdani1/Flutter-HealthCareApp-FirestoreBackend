@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'dart:async';
 import 'TopHealthTipsDetails.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -328,21 +329,41 @@ class _HomeState extends State<Home> {
         ],
       ),
 
-      bottomNavigationBar: Theme(
 
-      data: Theme.of(context).copyWith(
-            canvasColor: Color(0xFF23235A),
-        ),
-        child: new BottomNavigationBar(
+      bottomNavigationBar: CurvedNavigationBar(
 
-            items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.white,),title: new Text("Home",style: TextStyle(color: Colors.white),)),
-              BottomNavigationBarItem(icon: Icon(Icons.dock,color: Colors.white,),title: Text("Health Tips",style: TextStyle(color: Colors.white))),
-              BottomNavigationBarItem(icon: Icon(Icons.remove_red_eye,color: Colors.white,),title: Text("Doctor List",style: TextStyle(color: Colors.white)))
-            ]
-        ),
+        buttonBackgroundColor: Colors.amber,
+        backgroundColor: Color(0xFF222240),
+        color: Color(0xFF272B4A),
+        index: 2,
+        animationDuration: Duration(milliseconds: 100),
+        items: <Widget>[
+          Icon(Icons.add, size: 30,color: Colors.white,),
+          Icon(Icons.list, size: 30,color: Colors.white,),
+          Icon(Icons.compare_arrows, size: 30,color: Colors.white,),
+          Icon(Icons.security, size: 30,color: Colors.white,),
+          Icon(Icons.print, size: 30,color: Colors.white,),
+        ],
+        onTap: (index) {
+          //Handle button tap
+        },
       ),
-    
+
+//      bottomNavigationBar: Theme(
+//
+//      data: Theme.of(context).copyWith(
+//            canvasColor: Color(0xFF23235A),
+//        ),
+//        child: new BottomNavigationBar(
+//
+//            items: [
+//              BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.white,),title: new Text("Home",style: TextStyle(color: Colors.white),)),
+//              BottomNavigationBarItem(icon: Icon(Icons.dock,color: Colors.white,),title: Text("Health Tips",style: TextStyle(color: Colors.white))),
+//              BottomNavigationBarItem(icon: Icon(Icons.remove_red_eye,color: Colors.white,),title: Text("Doctor List",style: TextStyle(color: Colors.white)))
+//            ]
+//        ),
+//      ),
+
     );
   }
 }
