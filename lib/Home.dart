@@ -71,7 +71,16 @@ class _HomeState extends State<Home> {
                   decoration: new BoxDecoration(
                     color: Color(0xFF272B4A)
                   ),
-                )
+                ),
+                ListTile(
+                  title: Text("Home",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.white
+                  ),
+                  ),
+                  leading: Icon(Icons.home,color: Colors.white,),
+                ),
                 
               ],
             ),
@@ -324,7 +333,6 @@ class _HomeState extends State<Home> {
       data: Theme.of(context).copyWith(
             canvasColor: Color(0xFF23235A),
         ),
-
         child: new BottomNavigationBar(
 
             items: [
