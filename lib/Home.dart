@@ -45,8 +45,6 @@ class _HomeState extends State<Home> {
 
     super.initState();
   }
-
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -262,6 +260,7 @@ class _HomeState extends State<Home> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
 
+
                 new Container(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -273,6 +272,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
+
                 new SizedBox(height: 5.0,),
                 new Container(
                   height: 230.0,
@@ -338,13 +338,12 @@ class _HomeState extends State<Home> {
             ),
           ),
           //end third container
-          
+
         ],
       ),
 
 
       bottomNavigationBar: CurvedNavigationBar(
-
         buttonBackgroundColor: Colors.amber,
         backgroundColor: Color(0xFF222240),
         color: Color(0xFF272B4A),
@@ -379,6 +378,11 @@ class _HomeState extends State<Home> {
 
     );
   }
+
+
+
+
+
 }
 
 
