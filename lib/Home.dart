@@ -82,7 +82,6 @@ class _HomeState extends State<Home> {
                   ),
                   leading: Icon(Icons.home,color: Colors.white,),
                 ),
-                
               ],
             ),
           ),
@@ -277,8 +276,6 @@ class _HomeState extends State<Home> {
                             child: new Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-
-
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(10.0),
                                   child: new Image.network(dtsnapshot[index].data["image"],
@@ -287,7 +284,6 @@ class _HomeState extends State<Home> {
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-
                                 new SizedBox(height: 6.0,),
                                 Padding(
                                   padding: const EdgeInsets.all(5.0),
@@ -299,9 +295,7 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-
                                 new SizedBox(height: 5.0,),
-
                                 Padding(
                                   padding: const EdgeInsets.all(5.0),
                                   child: new Text(dtsnapshot[index].data["type"],
@@ -312,7 +306,6 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-
 
                               ],
                             ),
