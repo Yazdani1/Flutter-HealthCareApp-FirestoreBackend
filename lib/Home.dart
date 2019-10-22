@@ -9,84 +9,85 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => new _HomeState();
 }
+
 class _HomeState extends State<Home> {
 
   // start Top Health tips firestore
   StreamSubscription<QuerySnapshot>subscription;
   List<DocumentSnapshot>snapshot;
-  CollectionReference collectionReference=Firestore.instance.collection("TopHealthTips");
+  CollectionReference collectionReference = Firestore.instance.collection(
+      "TopHealthTips");
+
   //end top health tips firestore.
 
   //top doctor list firestore
   StreamSubscription<QuerySnapshot>doctor_subscription;
   List<DocumentSnapshot>dtsnapshot;
-  CollectionReference dtcollection=Firestore.instance.collection("TopDoctor");
+  CollectionReference dtcollection = Firestore.instance.collection("TopDoctor");
+
   //end top doctor list firestore
 
   @override
   void initState() {
-
     //health tips firestore
-    subscription=collectionReference.snapshots().listen((datasnap){
+    subscription = collectionReference.snapshots().listen((datasnap) {
       setState(() {
-          snapshot=datasnap.documents;
+        snapshot = datasnap.documents;
       });
       //end health tips firestore
 
-      doctor_subscription=dtcollection.snapshots().listen((dtsnap){
+      doctor_subscription = dtcollection.snapshots().listen((dtsnap) {
         setState(() {
-          dtsnapshot=dtsnap.documents;
+          dtsnapshot = dtsnap.documents;
         });
       });
-
     });
 
     super.initState();
   }
 
 
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Health Care"),
-        backgroundColor: Color(0xFF222240)
+          title: new Text("Health Care"),
+          backgroundColor: Color(0xFF222240)
       ),
       backgroundColor: Color(0xFF222240),
       //end of appbar
 
-        //start drawer
-        drawer: new Drawer(
-          child: new Container(
-            color: Color(0xFF222240),
-            child: new ListView(
-              children: <Widget>[
-                new UserAccountsDrawerHeader(
-                    accountName: new Text("Health Care",
-                    style: TextStyle(
-                      fontSize: 20.0
-                    ),
-                    ),
-                    accountEmail: null,
-                  decoration: new BoxDecoration(
-                    color: Color(0xFF272B4A)
-                  ),
-                ),
-                ListTile(
-                  title: Text("Home",
+      //start drawer
+      drawer: new Drawer(
+        child: new Container(
+          color: Color(0xFF222240),
+          child: new ListView(
+            children: <Widget>[
+              new UserAccountsDrawerHeader(
+                accountName: new Text("Health Care",
                   style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.white
+                      fontSize: 20.0
                   ),
-                  ),
-                  leading: Icon(Icons.home,color: Colors.white,),
                 ),
-              ],
-            ),
+                accountEmail: null,
+                decoration: new BoxDecoration(
+                    color: Color(0xFF272B4A)
+                ),
+              ),
+              ListTile(
+                title: Text("Home",
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white
+                  ),
+                ),
+                leading: Icon(Icons.home, color: Colors.white,),
+              ),
+            ],
           ),
         ),
-        //end drawer
+      ),
+      //end drawer
       body: new ListView(
         children: <Widget>[
           //start first container -- carosul slider
@@ -96,34 +97,39 @@ class _HomeState extends State<Home> {
             decoration: new BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0)
             ),
-
-              
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                child: Carousel(
-                  boxFit: BoxFit.cover,
-                  autoplay: true,
-                  animationCurve: Curves.fastOutSlowIn,
-                  animationDuration: Duration(milliseconds: 1000),
-                  dotSize: 7.0,
-                  dotIncreasedColor: Colors.red,
-                  dotBgColor: Colors.transparent,
-                  dotPosition: DotPosition.bottomCenter,
-                  dotVerticalPadding: 7.0,
-                  showIndicator: true,
-                  borderRadius: true,
-                  indicatorBgPadding: 10.0,
-                  overlayShadow: true,
-                  overlayShadowColors: Colors.black.withOpacity(0.4),
-                  overlayShadowSize: 10.0,
-                  images: [
-                    NetworkImage('https://images.pexels.com/photos/305564/pexels-photo-305564.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-                    NetworkImage('https://images.pexels.com/photos/139398/thermometer-headache-pain-pills-139398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-                    NetworkImage('https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-                    NetworkImage('https://images.pexels.com/photos/207601/pexels-photo-207601.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-                  ],
-                ),
+            child: Container(
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width,
+              child: Carousel(
+                boxFit: BoxFit.cover,
+                autoplay: true,
+                animationCurve: Curves.fastOutSlowIn,
+                animationDuration: Duration(milliseconds: 1000),
+                dotSize: 7.0,
+                dotIncreasedColor: Colors.red,
+                dotBgColor: Colors.transparent,
+                dotPosition: DotPosition.bottomCenter,
+                dotVerticalPadding: 7.0,
+                showIndicator: true,
+                borderRadius: true,
+                indicatorBgPadding: 10.0,
+                overlayShadow: true,
+                overlayShadowColors: Colors.black.withOpacity(0.4),
+                overlayShadowSize: 10.0,
+                images: [
+                  NetworkImage(
+                      'https://images.pexels.com/photos/305564/pexels-photo-305564.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                  NetworkImage(
+                      'https://images.pexels.com/photos/139398/thermometer-headache-pain-pills-139398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                  NetworkImage(
+                      'https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
+                  NetworkImage(
+                      'https://images.pexels.com/photos/207601/pexels-photo-207601.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+                ],
               ),
+            ),
           ),
           //end first container -- carousul slider
 
@@ -139,10 +145,10 @@ class _HomeState extends State<Home> {
                 new Container(
                   padding: EdgeInsets.all(10.0),
                   child: new Text("Top Health Tips",
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.white
-                  ),
+                    style: TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.white
+                    ),
                   ),
                 ),
                 new SizedBox(height: 5.0,),
@@ -152,7 +158,7 @@ class _HomeState extends State<Home> {
                   child: new ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: snapshot.length,
-                      itemBuilder: (context,index){
+                      itemBuilder: (context, index) {
                         return Card(
                           elevation: 10.0,
                           margin: EdgeInsets.only(left: 10.0),
@@ -170,7 +176,8 @@ class _HomeState extends State<Home> {
                                   flex: 1,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(15.0),
-                                    child: new Image.network(snapshot[index].data["image"],
+                                    child: new Image.network(
+                                      snapshot[index].data["image"],
                                       height: 130.0,
                                       fit: BoxFit.cover,
                                     ),
@@ -180,15 +187,22 @@ class _HomeState extends State<Home> {
                                 new Expanded(
                                   flex: 3,
                                   child: new Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment
+                                        .start,
                                     children: <Widget>[
                                       Padding(
-                                        padding: const EdgeInsets.only(top:5.0),
+                                        padding: const EdgeInsets.only(
+                                            top: 5.0),
                                         child: InkWell(
-                                          onTap: (){
-                                            Navigator.of(context).push(new MaterialPageRoute(builder: (context)=>TopHealthTipsDetails(snapshot[index])));
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                new MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        TopHealthTipsDetails(
+                                                            snapshot[index])));
                                           },
-                                          child: new Text(snapshot[index].data["title"],
+                                          child: new Text(
+                                            snapshot[index].data["title"],
                                             maxLines: 1,
                                             style: TextStyle(
                                                 fontSize: 18.0,
@@ -212,14 +226,15 @@ class _HomeState extends State<Home> {
                                           child: new Row(
                                             children: <Widget>[
                                               new Icon(Icons.remove_red_eye,
-                                              color: Colors.deepOrange,
+                                                color: Colors.deepOrange,
                                               ),
                                               new SizedBox(width: 5.0,),
-                                              new Text(snapshot[index].data["view"],
-                                              style: TextStyle(
-                                                fontSize: 16.0,
-                                                color: Colors.white
-                                              ),
+                                              new Text(
+                                                snapshot[index].data["view"],
+                                                style: TextStyle(
+                                                    fontSize: 16.0,
+                                                    color: Colors.white
+                                                ),
                                               )
                                             ],
                                           ),
@@ -232,7 +247,6 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                         );
-
                       }
                   ),
                 )
@@ -242,7 +256,7 @@ class _HomeState extends State<Home> {
           //end second container health tips
           //start third container
           new Container(
-            margin: EdgeInsets.only(left: 5.0,top: 10.0),
+            margin: EdgeInsets.only(left: 5.0, top: 10.0),
             height: 300.0,
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -252,10 +266,10 @@ class _HomeState extends State<Home> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: new Text("Top Doctor List",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.white
-                    ),
+                      style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white
+                      ),
                     ),
                   ),
                 ),
@@ -265,7 +279,7 @@ class _HomeState extends State<Home> {
                   child: new ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: dtsnapshot.length,
-                      itemBuilder: (context,index){
+                      itemBuilder: (context, index) {
                         return Card(
                           elevation: 10.0,
                           margin: EdgeInsets.only(left: 10.0),
@@ -280,7 +294,8 @@ class _HomeState extends State<Home> {
                               children: <Widget>[
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  child: new Image.network(dtsnapshot[index].data["image"],
+                                  child: new Image.network(
+                                    dtsnapshot[index].data["image"],
                                     height: 130.0,
                                     width: 220.0,
                                     fit: BoxFit.cover,
@@ -289,7 +304,8 @@ class _HomeState extends State<Home> {
                                 new SizedBox(height: 6.0,),
                                 Padding(
                                   padding: const EdgeInsets.all(5.0),
-                                  child: new Text(dtsnapshot[index].data["title"],
+                                  child: new Text(
+                                    dtsnapshot[index].data["title"],
                                     maxLines: 1,
                                     style: TextStyle(
                                         fontSize: 16.0,
@@ -300,7 +316,8 @@ class _HomeState extends State<Home> {
                                 new SizedBox(height: 5.0,),
                                 Padding(
                                   padding: const EdgeInsets.all(5.0),
-                                  child: new Text(dtsnapshot[index].data["type"],
+                                  child: new Text(
+                                    dtsnapshot[index].data["type"],
                                     maxLines: 1,
                                     style: TextStyle(
                                         fontSize: 16.0,
@@ -333,11 +350,11 @@ class _HomeState extends State<Home> {
         index: 2,
         animationDuration: Duration(milliseconds: 100),
         items: <Widget>[
-          Icon(Icons.add, size: 30,color: Colors.white,),
-          Icon(Icons.list, size: 30,color: Colors.white,),
-          Icon(Icons.compare_arrows, size: 30,color: Colors.white,),
-          Icon(Icons.security, size: 30,color: Colors.white,),
-          Icon(Icons.print, size: 30,color: Colors.white,),
+          Icon(Icons.add, size: 30, color: Colors.white,),
+          Icon(Icons.list, size: 30, color: Colors.white,),
+          Icon(Icons.compare_arrows, size: 30, color: Colors.white,),
+          Icon(Icons.security, size: 30, color: Colors.white,),
+          Icon(Icons.print, size: 30, color: Colors.white,),
         ],
         onTap: (index) {
           //Handle button tap
