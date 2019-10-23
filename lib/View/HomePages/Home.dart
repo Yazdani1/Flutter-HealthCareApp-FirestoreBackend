@@ -185,9 +185,7 @@ class _HomeState extends State<Home> {
                                             color: Colors.white
                                         ),
                                       ),
-
                                       new SizedBox(height: 10.0,),
-                                      
                                       Align(
                                         alignment: Alignment.bottomLeft,
                                         child: new Container(
@@ -197,6 +195,7 @@ class _HomeState extends State<Home> {
                                                 color: Colors.deepOrange,
                                               ),
                                               new SizedBox(width: 5.0,),
+
                                               new Text(
                                                 snapshot[index].data["view"],
                                                 style: TextStyle(
@@ -204,6 +203,7 @@ class _HomeState extends State<Home> {
                                                     color: Colors.white
                                                 ),
                                               )
+                                              
                                             ],
                                           ),
                                         ),
