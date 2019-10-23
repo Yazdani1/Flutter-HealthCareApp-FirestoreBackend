@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'dart:async';
-import 'TopHealthTipsDetails.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter_healthcareapp/View/DetailsPage/TopHealthTipsDetails.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -48,43 +48,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-          title: new Text("Health Care"),
-          backgroundColor: Color(0xFF222240)
-      ),
+
       backgroundColor: Color(0xFF222240),
       //end of appbar
 
-      //start drawer
-      drawer: new Drawer(
-        child: new Container(
-          color: Color(0xFF222240),
-          child: new ListView(
-            children: <Widget>[
-              new UserAccountsDrawerHeader(
-                accountName: new Text("Health Care",
-                  style: TextStyle(
-                      fontSize: 20.0
-                  ),
-                ),
-                accountEmail: null,
-                decoration: new BoxDecoration(
-                    color: Color(0xFF272B4A)
-                ),
-              ),
-              ListTile(
-                title: Text("Home",
-                  style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.white
-                  ),
-                ),
-                leading: Icon(Icons.home, color: Colors.white,),
-              ),
-            ],
-          ),
-        ),
-      ),
+
       //end drawer
       body: new ListView(
         children: <Widget>[
@@ -343,23 +311,7 @@ class _HomeState extends State<Home> {
       ),
 
 
-      bottomNavigationBar: CurvedNavigationBar(
-        buttonBackgroundColor: Colors.amber,
-        backgroundColor: Color(0xFF222240),
-        color: Color(0xFF272B4A),
-        index: 2,
-        animationDuration: Duration(milliseconds: 100),
-        items: <Widget>[
-          Icon(Icons.add, size: 30, color: Colors.white,),
-          Icon(Icons.list, size: 30, color: Colors.white,),
-          Icon(Icons.compare_arrows, size: 30, color: Colors.white,),
-          Icon(Icons.security, size: 30, color: Colors.white,),
-          Icon(Icons.print, size: 30, color: Colors.white,),
-        ],
-        onTap: (index) {
-          //Handle button tap
-        },
-      ),
+
 
 
 //      bottomNavigationBar: Theme(
