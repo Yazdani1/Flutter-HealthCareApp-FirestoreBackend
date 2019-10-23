@@ -45,6 +45,7 @@ class _HomeState extends State<Home> {
 
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -154,6 +155,7 @@ class _HomeState extends State<Home> {
                                     crossAxisAlignment: CrossAxisAlignment
                                         .start,
                                     children: <Widget>[
+
                                       Padding(
                                         padding: const EdgeInsets.only(
                                             top: 5.0),
@@ -183,7 +185,9 @@ class _HomeState extends State<Home> {
                                             color: Colors.white
                                         ),
                                       ),
+
                                       new SizedBox(height: 10.0,),
+                                      
                                       Align(
                                         alignment: Alignment.bottomLeft,
                                         child: new Container(
@@ -311,9 +315,6 @@ class _HomeState extends State<Home> {
       ),
 
 
-
-
-
 //      bottomNavigationBar: Theme(
 //
 //      data: Theme.of(context).copyWith(
@@ -331,9 +332,6 @@ class _HomeState extends State<Home> {
 
     );
   }
-
-
-
 
 
 }
