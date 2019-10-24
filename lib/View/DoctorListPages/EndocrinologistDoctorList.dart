@@ -40,6 +40,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
       body: new Container(
 
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0),
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
