@@ -13,11 +13,11 @@ class Index extends StatefulWidget {
 
 class _IndexState extends State<Index> {
 
-  int _selectPage=0;
+  int _selectPage=2;
   final pageOptions=[
-    Home(),
     DoctorList(),
     HealthTips(),
+    Home(),
     DoctorList(),
     HealthTips(),
   ];
@@ -75,9 +75,9 @@ class _IndexState extends State<Index> {
         index: 2,
         animationDuration: Duration(milliseconds: 100),
         items: <Widget>[
-          Icon(Icons.home, size: 30, color: Colors.white,),
+          Icon(Icons.dock, size: 30, color: Colors.white,),
           Icon(Icons.view_headline, size: 30, color: Colors.white,),
-          Icon(Icons.compare_arrows, size: 30, color: Colors.white,),
+          Icon(Icons.home, size: 30, color: Colors.white,),
           Icon(Icons.remove_red_eye, size: 30, color: Colors.white,),
           Icon(Icons.print, size: 30, color: Colors.white,),
         ],
