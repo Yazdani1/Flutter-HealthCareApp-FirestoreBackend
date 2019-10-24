@@ -286,7 +286,7 @@ class _HealthTipsState extends State<HealthTips> {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.of(context).pop();
                       },
                       child: Container(
@@ -327,7 +327,8 @@ class _HealthTipsState extends State<HealthTips> {
                               ),
                             ),
 
-                            Icon(Icons.forward,color: Colors.white,size: 25.0,)
+                            Icon(
+                              Icons.forward, color: Colors.white, size: 25.0,)
 
                           ],
                         ),
