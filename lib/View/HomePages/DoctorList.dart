@@ -11,7 +11,17 @@ class _DoctorListState extends State<DoctorList> {
   Widget build(BuildContext context) {
     return new Scaffold(
 
-   
+      backgroundColor: Color(0xFF222240),
+
+      body: new ListView(
+        children: <Widget>[
+
+          
+
+        ],
+      ),
+
+
 
     );
   }
