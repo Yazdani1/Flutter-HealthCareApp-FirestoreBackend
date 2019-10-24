@@ -12,6 +12,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+//  Future getAllPost() async{
+//
+//    var firestore=Firestore.instance;
+//    QuerySnapshot sp=await firestore.collection("posts").getDocuments();
+//    return sp.documents;
+//  }
+
   // start Top Health tips firestore
   StreamSubscription<QuerySnapshot>subscription;
   List<DocumentSnapshot>snapshot;
@@ -246,6 +253,7 @@ class _HomeState extends State<Home> {
                 ),
 
                 new SizedBox(height: 5.0,),
+
                 new Container(
                   height: 230.0,
                   child: new ListView.builder(

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:flutter_healthcareapp/View/DoctorListPages/EndocrinologistDoctorList.dart';
+import 'package:flutter_healthcareapp/View/DoctorListPages/MedicinDoctorList.dart';
+import 'package:flutter_healthcareapp/View/DoctorListPages/NeurologistDoctorList.dart';
+import 'package:flutter_healthcareapp/View/DoctorListPages/PsychiatristDoctorList.dart';
 
 
 class DoctorList extends StatefulWidget {
@@ -84,7 +88,7 @@ class _DoctorListState extends State<DoctorList> {
       height: MediaQuery
           .of(context)
           .size
-          .height/2,
+          .height / 2,
       child: new Column(
         children: <Widget>[
 
@@ -109,16 +113,26 @@ class _DoctorListState extends State<DoctorList> {
                           child: new Image.network(
                             "https://images.pexels.com/photos/159211/headache-pain-pills-medication-159211.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
                             height: 110.0,
-                            width: MediaQuery.of(context).size.width,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width,
                             fit: BoxFit.cover,
                           ),
                         ),
                         new SizedBox(height: 10.0,),
 
-                        Text("Psychiatrist Doctor",
-                          style: TextStyle(
-                              fontSize: 16.0,
-                              color: Colors.lightGreen
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(new MaterialPageRoute(
+                                builder: (context) =>
+                                    PsychiatristDoctorList()));
+                          },
+                          child: Text("Psychiatrist Doctor",
+                            style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.lightGreen
+                            ),
                           ),
                         )
 
@@ -143,16 +157,26 @@ class _DoctorListState extends State<DoctorList> {
                           child: new Image.network(
                             "https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
                             height: 110.0,
-                            width: MediaQuery.of(context).size.width,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width,
                             fit: BoxFit.cover,
                           ),
                         ),
                         new SizedBox(height: 10.0,),
 
-                        Text("Endocrinologist Doctor",
-                          style: TextStyle(
-                              fontSize: 16.0,
-                              color: Colors.lightGreen
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(new MaterialPageRoute(
+                                builder: (context) =>
+                                    EndocrinologistDoctorList()));
+                          },
+                          child: Text("Endocrinologist Doctor",
+                            style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.lightGreen
+                            ),
                           ),
                         )
                       ],
@@ -188,16 +212,26 @@ class _DoctorListState extends State<DoctorList> {
                           child: new Image.network(
                             "https://images.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
                             height: 110.0,
-                            width: MediaQuery.of(context).size.width,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width,
                             fit: BoxFit.cover,
                           ),
                         ),
                         new SizedBox(height: 10.0,),
 
-                        Text("Neurologist Doctor",
-                          style: TextStyle(
-                              fontSize: 16.0,
-                              color: Colors.lightGreen
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(new MaterialPageRoute(
+                                builder: (context) =>
+                                    NeurologistDoctorList()));
+                          },
+                          child: Text("Neurologist Doctor",
+                            style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.lightGreen
+                            ),
                           ),
                         )
 
@@ -222,16 +256,26 @@ class _DoctorListState extends State<DoctorList> {
                           child: new Image.network(
                             "https://images.pexels.com/photos/4154/clinic-doctor-health-hospital.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
                             height: 110.0,
-                            width: MediaQuery.of(context).size.width,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width,
                             fit: BoxFit.cover,
                           ),
                         ),
                         new SizedBox(height: 10.0,),
 
-                        Text("Medicin Doctor",
-                          style: TextStyle(
-                              fontSize: 16.0,
-                              color: Colors.lightGreen
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(new MaterialPageRoute(
+                                builder: (context) =>
+                                    MedicinDoctorList()));
+                          },
+                          child: Text("Medicin Doctor",
+                            style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.lightGreen
+                            ),
                           ),
                         )
                       ],
