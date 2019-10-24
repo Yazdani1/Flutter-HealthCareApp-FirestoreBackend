@@ -65,11 +65,66 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
                     itemBuilder: (context, index) {
                       return Card(
                         elevation: 10.0,
-                        margin: EdgeInsets.all(5.0),
-                        child: Row(
-                          children: <Widget>[
-                            
-                          ],
+                        margin: EdgeInsets.all(10.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0)
+                        ),
+                        child: new Container(
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                              color: Color(0xFF60216D),
+                            borderRadius: BorderRadius.circular(15.0)
+                          ),
+                          child: new Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+
+                              Expanded(
+                                flex: 1,
+                                child: new Container(
+                                  height: 140.0,
+                                  width: 140.0,
+                                  margin: EdgeInsets.all(5.0),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: new DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: NetworkImage(
+                                         snapshot.data[index].data["image"]
+                                        )
+                                    )
+                                  ),
+                                )
+                              ),
+                              SizedBox(width: 10.0,),
+                              Expanded(
+                                flex: 3,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+
+                                    Text(snapshot.data[index].data["name"],
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      color: Colors.white
+                                    ),
+                                    ),
+                                    SizedBox(height: 5.0,),
+                                    Text(snapshot.data[index].data["availability"],
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      color: Colors.white
+                                    ),
+                                    )
+
+                                  ],
+                                ),
+                              )
+
+                            ],
+                          ),
                         ),
                       );
                     }
