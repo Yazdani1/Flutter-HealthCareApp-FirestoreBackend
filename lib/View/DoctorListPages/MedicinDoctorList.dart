@@ -57,14 +57,14 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child: new Text("Data Loading..."),
+                  child: new Text("Data Loading...kkk"),
                 );
               } else {
                 return ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (context, index) {
                       return Card(
-                        elevation: 10.0,
+                        elevation: 5.0,
                         margin: EdgeInsets.all(10.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0)
@@ -81,7 +81,7 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
                             children: <Widget>[
 
                               Expanded(
-                                flex: 1,
+                                flex: 2,
                                 child: new Container(
                                   height: 140.0,
                                   width: 140.0,
@@ -121,7 +121,36 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
 
                                   ],
                                 ),
+                              ),
+
+                              new SizedBox(width: 10.0,),
+
+                              Expanded(
+                                flex: 2,
+                                child: new Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+
+                                    Text(snapshot.data[index].data["experience"],
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      color: Colors.white
+                                    ),
+                                    ),
+                                    SizedBox(height: 5.0,),
+                                    Text("Experience",
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      color: Colors.white
+                                    ),
+                                    )
+
+
+
+                                  ],
+                                ),
                               )
+
 
                             ],
                           ),

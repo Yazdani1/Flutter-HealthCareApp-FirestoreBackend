@@ -85,6 +85,7 @@ class _DoctorListState extends State<DoctorList> {
   Widget doctortypes() {
     return Container(
       margin: EdgeInsets.all(10.0),
+
       height: MediaQuery
           .of(context)
           .size

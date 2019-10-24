@@ -142,6 +142,19 @@ class _HomeState extends State<Home> {
                           child: new Container(
                             height: 130.0,
                             width: 300.0,
+                            decoration: BoxDecoration(
+                              borderRadius: new BorderRadius.circular(15.0),
+                              gradient: LinearGradient(
+                                begin: Alignment.topRight,
+                                end: Alignment.bottomLeft,
+                                colors: [
+                                  Colors.green[400],
+                                  Colors.brown[900],
+                                  Colors.deepOrange[600],
+                                  Colors.amber[900],
+                                ],
+                              ),
+                            ),
                             child: new Row(
                               children: <Widget>[
                                 new Expanded(
@@ -199,7 +212,7 @@ class _HomeState extends State<Home> {
                                           child: new Row(
                                             children: <Widget>[
                                               new Icon(Icons.remove_red_eye,
-                                                color: Colors.deepOrange,
+                                                color: Colors.white,
                                               ),
                                               new SizedBox(width: 5.0,),
 
@@ -269,6 +282,19 @@ class _HomeState extends State<Home> {
                           color: Color(0xFF272B4A),
                           child: new Container(
                             width: 220.0,
+                            decoration: BoxDecoration(
+                              borderRadius: new BorderRadius.circular(15.0),
+                              gradient: LinearGradient(
+                                begin: Alignment.topRight,
+                                end: Alignment.bottomLeft,
+                                colors: [
+                                  Colors.green[400],
+                                  Colors.brown[900],
+                                  Colors.deepOrange[600],
+                                  Colors.amber[900],
+                                ],
+                              ),
+                            ),
                             child: new Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
