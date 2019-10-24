@@ -4,7 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EndocrinologistDoctorList extends StatefulWidget {
   @override
-  _EndocrinologistDoctorListState createState() => new _EndocrinologistDoctorListState();
+  _EndocrinologistDoctorListState createState() =>
+      new _EndocrinologistDoctorListState();
 }
 
 class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
@@ -21,7 +22,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
     return new Scaffold(
 
       appBar: new AppBar(
-          title: new Text("EndocrinologistDoctorList"),
+        title: new Text("EndocrinologistDoctorList"),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -55,7 +56,14 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child: new Text("Data Loading...kkk"),
+                    child: Container(
+                      child: new Text("Data Loading...",
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white
+                        ),
+                      ),
+                    )
                 );
               } else {
                 return ListView.builder(
@@ -89,7 +97,8 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
                                         image: new DecorationImage(
                                             fit: BoxFit.cover,
                                             image: NetworkImage(
-                                                snapshot.data[index].data["image"]
+                                                snapshot.data[index]
+                                                    .data["image"]
                                             )
                                         )
                                     ),
@@ -110,7 +119,8 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
                                       ),
                                     ),
                                     SizedBox(height: 5.0,),
-                                    Text(snapshot.data[index].data["availability"],
+                                    Text(
+                                      snapshot.data[index].data["availability"],
                                       style: TextStyle(
                                           fontSize: 14.0,
                                           color: Colors.white
@@ -123,13 +133,21 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
 
                               new SizedBox(width: 10.0,),
 
+                              Container(
+                                width: 0.5,
+                                margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
+                                height: double.maxFinite,
+                                color: Colors.grey,
+                              ),
+
                               Expanded(
                                 flex: 2,
                                 child: new Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
 
-                                    Text(snapshot.data[index].data["experience"],
+                                    Text(
+                                      snapshot.data[index].data["experience"],
                                       style: TextStyle(
                                           fontSize: 20.0,
                                           color: Colors.white
@@ -142,7 +160,6 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
                                           color: Colors.white
                                       ),
                                     )
-
 
 
                                   ],
@@ -160,7 +177,6 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
             }
         ),
       ),
-
 
 
     );

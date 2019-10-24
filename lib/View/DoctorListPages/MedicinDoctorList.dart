@@ -57,7 +57,14 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child: new Text("Data Loading...kkk"),
+                    child: Container(
+                      child: new Text("Data Loading...",
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white
+                        ),
+                      ),
+                    )
                 );
               } else {
                 return ListView.builder(
@@ -67,13 +74,13 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
                         elevation: 5.0,
                         margin: EdgeInsets.all(10.0),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0)
+                            borderRadius: BorderRadius.circular(15.0)
                         ),
                         child: new Container(
                           height: 100.0,
                           decoration: BoxDecoration(
                               color: Color(0xFF60216D),
-                            borderRadius: BorderRadius.circular(15.0)
+                              borderRadius: BorderRadius.circular(15.0)
                           ),
                           child: new Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,21 +88,22 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
                             children: <Widget>[
 
                               Expanded(
-                                flex: 2,
-                                child: new Container(
-                                  height: 140.0,
-                                  width: 140.0,
-                                  margin: EdgeInsets.all(5.0),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: new DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(
-                                         snapshot.data[index].data["image"]
+                                  flex: 2,
+                                  child: new Container(
+                                    height: 140.0,
+                                    width: 140.0,
+                                    margin: EdgeInsets.all(5.0),
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: new DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(
+                                                snapshot.data[index]
+                                                    .data["image"]
+                                            )
                                         )
-                                    )
-                                  ),
-                                )
+                                    ),
+                                  )
                               ),
                               SizedBox(width: 10.0,),
                               Expanded(
@@ -106,17 +114,18 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
                                   children: <Widget>[
 
                                     Text(snapshot.data[index].data["name"],
-                                    style: TextStyle(
-                                      fontSize: 20.0,
-                                      color: Colors.white
-                                    ),
+                                      style: TextStyle(
+                                          fontSize: 20.0,
+                                          color: Colors.white
+                                      ),
                                     ),
                                     SizedBox(height: 5.0,),
-                                    Text(snapshot.data[index].data["availability"],
-                                    style: TextStyle(
-                                      fontSize: 14.0,
-                                      color: Colors.white
-                                    ),
+                                    Text(
+                                      snapshot.data[index].data["availability"],
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          color: Colors.white
+                                      ),
                                     )
 
                                   ],
@@ -125,26 +134,33 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
 
                               new SizedBox(width: 10.0,),
 
+                              Container(
+                                width: 0.5,
+                                margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
+                                height: double.maxFinite,
+                                color: Colors.grey,
+                              ),
+
                               Expanded(
                                 flex: 2,
                                 child: new Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
 
-                                    Text(snapshot.data[index].data["experience"],
-                                    style: TextStyle(
-                                      fontSize: 20.0,
-                                      color: Colors.white
-                                    ),
+                                    Text(
+                                      snapshot.data[index].data["experience"],
+                                      style: TextStyle(
+                                          fontSize: 20.0,
+                                          color: Colors.white
+                                      ),
                                     ),
                                     SizedBox(height: 5.0,),
                                     Text("Experience",
-                                    style: TextStyle(
-                                      fontSize: 14.0,
-                                      color: Colors.white
-                                    ),
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          color: Colors.white
+                                      ),
                                     )
-
 
 
                                   ],
