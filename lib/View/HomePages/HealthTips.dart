@@ -90,24 +90,22 @@ class _HealthTipsState extends State<HealthTips> {
                                 flex: 1,
                                 child: Container(
                                   margin: EdgeInsets.all(5.0),
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF60226D),
-                                    shape: BoxShape.circle,
-                                  ),
+//                                  decoration: BoxDecoration(
+//                                    //color: Color(0xFF60226D),
+//                                    shape: BoxShape.circle,
+//                                  ),
                                   child: Align(
                                     alignment: Alignment.center,
                                     child: Text("TIPS",
                                       style: TextStyle(
                                           fontSize: 20.0,
-                                          color: Colors.white
+                                          color: Colors.amber
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-
                               SizedBox(width: 2.0,),
-
                               Container(
                                 width: 0.5,
                                 margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
