@@ -19,7 +19,6 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-
       appBar: new AppBar(
         title: new Text("EndocrinologistDoctorList"),
         flexibleSpace: Container(
