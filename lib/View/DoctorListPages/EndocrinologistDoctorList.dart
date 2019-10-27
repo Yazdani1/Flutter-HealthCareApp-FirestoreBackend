@@ -17,7 +17,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
     return snap.documents;
   }
 
-  
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

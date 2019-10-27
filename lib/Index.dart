@@ -4,6 +4,7 @@ import 'package:flutter_healthcareapp/View//HomePages/Home.dart';
 import 'package:flutter_healthcareapp/View/DetailsPage/TopHealthTipsDetails.dart';
 import 'package:flutter_healthcareapp/View//HomePages/DoctorList.dart';
 import 'package:flutter_healthcareapp/View//HomePages/HealthTips.dart';
+import 'package:flutter_healthcareapp/View//HomePages/HospitalList.dart';
 
 
 class Index extends StatefulWidget {
@@ -18,7 +19,7 @@ class _IndexState extends State<Index> {
     DoctorList(),
     HealthTips(),
     Home(),
-    DoctorList(),
+    HospitalList(),
     HealthTips(),
   ];
 
