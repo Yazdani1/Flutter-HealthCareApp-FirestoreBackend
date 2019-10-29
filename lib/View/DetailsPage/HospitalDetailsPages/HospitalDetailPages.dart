@@ -44,7 +44,7 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
         collapsed: _floatingCollapsed(),
 
         body: Container(
-
+          height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
@@ -66,7 +66,7 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                 child: Card(
                   elevation: 10.0,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0)
+                      borderRadius: BorderRadius.circular(15.0)
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
@@ -75,6 +75,94 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                       fit: BoxFit.cover,
                     ),
                   ),
+                ),
+              ),
+              SizedBox(height: 5.0,),
+
+              Container(
+                margin: EdgeInsets.all(6.0),
+                padding: EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Colors.deepOrange[400],
+                      Colors.deepOrange[900],
+                      Colors.green[900],
+                      Colors.pink[400],
+                    ],
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+
+                    Text(widget.snapshot.data["name"],
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white
+                      ),
+                    ),
+                    SizedBox(height: 5.0,),
+
+                    Text(widget.snapshot.data["address"],
+                      style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.white
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(6.0),
+                height: 80.0,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    //first container start
+                    Container(
+                      height: 80.0,
+                      width: 100.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [
+                            Colors.deepOrange[400],
+                            Colors.deepOrange[900],
+                            Colors.green[900],
+                            Colors.pink[400],
+                          ],
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(widget.snapshot.data["dtnumber"],
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white
+                          ),
+                          ),
+                          SizedBox(height: 5.0,),
+                          Text("Doctor",
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    )
+                    //first container end
+                  ],
                 ),
               ),
 
