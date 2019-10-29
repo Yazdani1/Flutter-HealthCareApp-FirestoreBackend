@@ -152,8 +152,6 @@ class _HospitalListState extends State<HospitalList> {
         ),
 
       ),
-
-
     );
   }
 }
