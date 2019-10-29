@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
+import 'package:flutter_healthcareapp/View/DetailsPage/HospitalDetailsPages/HospitalDetailPages.dart';
 
 class HospitalList extends StatefulWidget {
   @override
@@ -129,10 +130,20 @@ class _HospitalListState extends State<HospitalList> {
                                     ),
                                     child: Align(
                                       alignment: Alignment.center,
-                                      child: Text("More Details..",
-                                        style: TextStyle(
-                                            fontSize: 15.0,
-                                            color: Colors.white
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.of(context).push(
+                                              new MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      HospitalDetailPages(
+                                                          snapshot
+                                                              .data[index])));
+                                        },
+                                        child: Text("More Details..",
+                                          style: TextStyle(
+                                              fontSize: 15.0,
+                                              color: Colors.white
+                                          ),
                                         ),
                                       ),
                                     ),
