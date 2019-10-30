@@ -140,7 +140,7 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                           ],
                         ),
                       ),
-                      
+
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +166,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                   ],
                 ),
               ),
-
             ],
           ),
         ),
