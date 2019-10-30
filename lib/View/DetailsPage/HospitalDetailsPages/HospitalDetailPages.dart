@@ -170,8 +170,7 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
           ),
         ),
       ),
-
-
+    
     );
   }
 
