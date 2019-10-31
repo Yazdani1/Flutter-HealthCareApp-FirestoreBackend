@@ -44,7 +44,10 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
         collapsed: _floatingCollapsed(),
 
         body: Container(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
@@ -130,26 +133,37 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
                         gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [
-                            Colors.deepOrange[400],
-                            Colors.deepOrange[900],
-                            Colors.green[900],
-                            Colors.pink[400],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: <Color>[
+                            Colors.red,
+                            Colors.amber,
                           ],
                         ),
                       ),
+//                      decoration: BoxDecoration(
+//                        borderRadius: BorderRadius.circular(15.0),
+//                        gradient: LinearGradient(
+//                          begin: Alignment.topRight,
+//                          end: Alignment.bottomLeft,
+//                          colors: [
+//                            Colors.deepOrange[400],
+//                            Colors.deepOrange[900],
+//                            Colors.green[900],
+//                            Colors.pink[400],
+//                          ],
+//                        ),
+//                      ),
 
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(widget.snapshot.data["dtnumber"],
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.white
-                          ),
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
                           ),
                           SizedBox(height: 5.0,),
                           Text("Doctor",
@@ -161,8 +175,170 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
 
                         ],
                       ),
-                    )
+                    ),
                     //first container end
+
+                    //Second container start...
+                    Container(
+                      height: 80.0,
+                      width: 100.0,
+                      margin: EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: <Color>[
+                            Colors.red,
+                            Colors.amber,
+                          ],
+                        ),
+                      ),
+
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(widget.snapshot.data["staff"],
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
+                          ),
+                          SizedBox(height: 5.0,),
+                          Text("Staff",
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+                    //end second container
+
+                    //start third container
+                    Container(
+                      height: 80.0,
+                      width: 100.0,
+                      margin: EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: <Color>[
+                            Colors.red,
+                            Colors.amber,
+                          ],
+                        ),
+                      ),
+
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(widget.snapshot.data["Rank"],
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
+                          ),
+                          SizedBox(height: 5.0,),
+                          Text("Rank",
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+                    //end third container
+
+                    //start fourth container
+                    Container(
+                      height: 80.0,
+                      width: 100.0,
+                      margin: EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: <Color>[
+                            Colors.red,
+                            Colors.amber,
+                          ],
+                        ),
+                      ),
+
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(widget.snapshot.data["Operation"],
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
+                          ),
+                          SizedBox(height: 5.0,),
+                          Text("Operation",
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+                    //end fourth container
+
+                    //start fifth container
+                    Container(
+                      height: 80.0,
+                      width: 100.0,
+                      margin: EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: <Color>[
+                            Colors.red,
+                            Colors.amber,
+                          ],
+                        ),
+                      ),
+
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(widget.snapshot.data["Branch"],
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
+                          ),
+                          SizedBox(height: 5.0,),
+                          Text("Branch",
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+                    //end fifth container
+
+
                   ],
                 ),
               ),
@@ -170,7 +346,7 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
           ),
         ),
       ),
-    
+
     );
   }
 
