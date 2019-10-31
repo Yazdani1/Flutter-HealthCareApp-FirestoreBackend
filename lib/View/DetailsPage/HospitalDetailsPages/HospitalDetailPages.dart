@@ -419,26 +419,126 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
 
           //medicin doctor list start
           Container(
-            height: MediaQuery.of(context).size.height/1.50,
+            height: MediaQuery
+                .of(context)
+                .size
+                .height / 1.50,
             margin: EdgeInsets.all(6.0),
             child: ListView(
               children: <Widget>[
                 //First Container
                 Container(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("Medicin Doctor",
-                        style: TextStyle(
-                            fontSize: 18.0,
-                            color: Colors.white
-                        ),
-                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("Medicin Doctor",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white
+                            ),
+                          ),
+                          Text("See All",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white
+                            ),
+                          ),
+                        ],),
                       SizedBox(height: 8.0,),
                       _medicinDoctorlist(),
                     ],
                   ),
                 ),
+                SizedBox(height: 6.0,),
+
                 //end first container
+
+                //second container start
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("Medicin Doctor",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white
+                            ),
+                          ),
+                          Text("See All",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white
+                            ),
+                          ),
+                        ],),
+                      SizedBox(height: 8.0,),
+                      _medicinDoctorlist(),
+                    ],
+                  ),
+                ),
+                //end second container end
+
+                //start third container
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("Medicin Doctor",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white
+                            ),
+                          ),
+                          Text("See All",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white
+                            ),
+                          ),
+                        ],),
+                      SizedBox(height: 8.0,),
+                      _medicinDoctorlist(),
+                    ],
+                  ),
+                ),
+                //end third container
+
+                //start fourth cointer
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("Medicin Doctor",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white
+                            ),
+                          ),
+                          Text("See All",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white
+                            ),
+                          ),
+                        ],),
+                      SizedBox(height: 8.0,),
+                      _medicinDoctorlist(),
+                    ],
+                  ),
+                ),
+                //end fourth countrianer
 
               ],
             ),
@@ -509,8 +609,8 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
 
   Widget _medicinDoctorlist() {
     return Container(
-      margin: EdgeInsets.all(6.0),
-      height: 250.0,
+      //margin: EdgeInsets.all(6.0),
+      height: 260.0,
       child: FutureBuilder(
           future: getallDoctor(),
           builder: (context, snapshot) {
@@ -526,13 +626,13 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
             } else {
               return Container(
                 child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.horizontal,
                     itemCount: snapshot.data.length,
                     itemBuilder: (context, index) {
                       return Card(
                         elevation: 10.0,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0)
+                            borderRadius: BorderRadius.circular(15.0)
                         ),
                         child: Container(
                           width: 200.0,
@@ -579,7 +679,22 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                                     fontSize: 14.0,
                                     color: Colors.white
                                 ),
-                              )
+                              ),
+                              Container(
+                                width: 150.0,
+                                margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
+                                height: 0.6,
+                                color: Colors.white,
+                              ),
+
+                              Text(
+                                snapshot.data[index].data["experience"],
+                                style: TextStyle(
+                                    fontSize: 20.0,
+                                    color: Colors.white
+                                ),
+                              ),
+
                             ],
                           ),
                         ),
