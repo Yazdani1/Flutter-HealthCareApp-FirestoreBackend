@@ -419,17 +419,27 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
 
           //medicin doctor list start
           Container(
+            height: MediaQuery.of(context).size.height/1.50,
             margin: EdgeInsets.all(6.0),
-            child: Column(
+            child: ListView(
               children: <Widget>[
-                Text("Medicin Doctor",
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: Colors.white
+                //First Container
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      Text("Medicin Doctor",
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            color: Colors.white
+                        ),
+                      ),
+                      SizedBox(height: 8.0,),
+                      _medicinDoctorlist(),
+                    ],
+                  ),
                 ),
-                ),
-                SizedBox(height: 8.0,),
-                _medicinDoctorlist(),
+                //end first container
+
               ],
             ),
           ),
@@ -533,7 +543,7 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                               end: Alignment.centerRight,
                               colors: <Color>[
                                 Colors.red,
-                                Colors.amber,
+                                Color(0xFF60216D),
                               ],
                             ),
                           ),
@@ -554,9 +564,22 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                                         )
                                     )
                                 ),
+                              ),
+                              SizedBox(height: 30.0,),
+                              Text(snapshot.data[index].data["name"],
+                                style: TextStyle(
+                                    fontSize: 20.0,
+                                    color: Colors.white
+                                ),
+                              ),
+                              SizedBox(height: 5.0,),
+                              Text(
+                                snapshot.data[index].data["availability"],
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    color: Colors.white
+                                ),
                               )
-
-
                             ],
                           ),
                         ),

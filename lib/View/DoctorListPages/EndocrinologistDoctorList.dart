@@ -79,9 +79,20 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
                         child: new Container(
                           height: 100.0,
                           decoration: BoxDecoration(
-                              color: Color(0xFF60216D),
-                              borderRadius: BorderRadius.circular(15.0)
+                            borderRadius: BorderRadius.circular(15.0),
+                            gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: <Color>[
+                                Colors.red,
+                                Color(0xFF60216D),
+                              ],
+                            ),
                           ),
+//                          decoration: BoxDecoration(
+//                              color: Color(0xFF60216D),
+//                              borderRadius: BorderRadius.circular(15.0)
+//                          ),
                           child: new Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
