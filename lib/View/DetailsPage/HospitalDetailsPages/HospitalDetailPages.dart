@@ -342,6 +342,25 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                   ],
                 ),
               ),
+
+              //description container start
+              Container(
+                height: MediaQuery.of(context).size.height/1.5,
+                margin: EdgeInsets.all(6.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[
+                      Colors.red,
+                      Colors.amber,
+                    ],
+                  ),
+                ),
+              )
+              //description container end
+
             ],
           ),
         ),
