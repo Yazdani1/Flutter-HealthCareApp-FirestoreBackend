@@ -649,7 +649,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                           ),
                           child: Column(
                             children: <Widget>[
-
                               Container(
                                 height: 100.0,
                                 width: 100.0,
