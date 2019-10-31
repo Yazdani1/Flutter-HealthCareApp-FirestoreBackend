@@ -16,6 +16,14 @@ class HospitalDetailPages extends StatefulWidget {
 }
 
 class _HospitalDetailPagesState extends State<HospitalDetailPages> {
+
+  Future getallDoctor() async {
+    var fr = Firestore.instance;
+    QuerySnapshot snap = await fr.collection("MedicinDoctorList")
+        .getDocuments();
+    return snap.documents;
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -41,6 +49,8 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
       body: SlidingUpPanel(
         panel: _panel_Doctorlist(),
         color: Colors.deepOrange,
+        parallaxEnabled: true,
+        parallaxOffset: .5,
         collapsed: _floatingCollapsed(),
 
         body: Container(
@@ -345,7 +355,10 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
 
               //description container start
               Container(
-                height: MediaQuery.of(context).size.height/1.5,
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height / 1,
                 margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
@@ -356,6 +369,15 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                       Colors.red,
                       Colors.amber,
                     ],
+                  ),
+                ),
+                child: Container(
+                  padding: EdgeInsets.all(5.0),
+                  child: Text(widget.snapshot.data["des"],
+                    style: TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.white
+                    ),
                   ),
                 ),
               )
@@ -394,6 +416,24 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
             ],
           ),
           SizedBox(height: 10.0,),
+
+          //medicin doctor list start
+          Container(
+            margin: EdgeInsets.all(6.0),
+            child: Column(
+              children: <Widget>[
+                Text("Medicin Doctor",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.white
+                ),
+                ),
+                SizedBox(height: 8.0,),
+                _medicinDoctorlist(),
+              ],
+            ),
+          ),
+          //medicin doctor list end
 
 
         ],
@@ -453,6 +493,80 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
 
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _medicinDoctorlist() {
+    return Container(
+      margin: EdgeInsets.all(6.0),
+      height: 250.0,
+      child: FutureBuilder(
+          future: getallDoctor(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: Text("Loading..",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white
+                  ),
+                ),
+              );
+            } else {
+              return Container(
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        elevation: 10.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0)
+                        ),
+                        child: Container(
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: <Color>[
+                                Colors.red,
+                                Colors.amber,
+                              ],
+                            ),
+                          ),
+                          child: Column(
+                            children: <Widget>[
+
+                              Container(
+                                height: 100.0,
+                                width: 100.0,
+                                margin: EdgeInsets.all(5.0),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: new DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: NetworkImage(
+                                            snapshot.data[index]
+                                                .data["image"]
+                                        )
+                                    )
+                                ),
+                              )
+
+
+                            ],
+                          ),
+                        ),
+                      );
+                    }
+                ),
+
+              );
+            }
+          }
       ),
     );
   }
