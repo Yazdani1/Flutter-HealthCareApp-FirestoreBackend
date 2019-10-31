@@ -685,7 +685,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                                 height: 0.6,
                                 color: Colors.white,
                               ),
-
                               Text(
                                 snapshot.data[index].data["experience"],
                                 style: TextStyle(
@@ -693,7 +692,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                                     color: Colors.white
                                 ),
                               ),
-
                             ],
                           ),
                         ),
