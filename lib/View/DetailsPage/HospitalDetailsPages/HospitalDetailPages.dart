@@ -416,7 +416,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
             ],
           ),
           SizedBox(height: 10.0,),
-
           //medicin doctor list start
           Container(
             height: MediaQuery
