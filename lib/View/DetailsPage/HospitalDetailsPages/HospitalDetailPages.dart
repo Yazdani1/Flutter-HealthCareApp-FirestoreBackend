@@ -452,7 +452,7 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                   ),
                 ),
                 SizedBox(height: 6.0,),
-                
+
                 //end first container
                 //second container start
                 Container(
