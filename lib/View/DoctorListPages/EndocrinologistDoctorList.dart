@@ -22,7 +22,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
   var _refreshKey= GlobalKey<RefreshIndicatorState>();
 
   Future<Null>onrefresh() async{
-    await Future.delayed(Duration(seconds: 10));
+    await Future.delayed(Duration(seconds: 1));
     _refreshKey.currentState?.show(atTop: false);
     setState(() {
       getAllpost();
@@ -79,6 +79,8 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
               } else {
                 return RefreshIndicator(
                   onRefresh: onrefresh,
+                  backgroundColor: Colors.green,
+                  color: Colors.white,
                   child: ListView.builder(
                       itemCount: snapshot.data.length,
                       itemBuilder: (context, index) {
