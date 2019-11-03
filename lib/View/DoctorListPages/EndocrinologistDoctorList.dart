@@ -25,7 +25,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
     await Future.delayed(Duration(seconds: 1));
     _refreshKey.currentState?.show(atTop: false);
     setState(() {
-      getAllpost();
+     getAllpost();
     });
   }
 
@@ -69,12 +69,12 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                 child: Text("Data Loading",
-                 style: TextStyle(
-                   fontSize: 20.0,
-                   color: Colors.white
-                 ),
-                 ),
+                  child: Text("Data Loading..",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.white
+                  ),
+                  ),
                 );
               } else {
                 return RefreshIndicator(
