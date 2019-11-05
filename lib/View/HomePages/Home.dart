@@ -47,7 +47,6 @@ class _HomeState extends State<Home> {
         });
       });
     });
-
     super.initState();
   }
 
@@ -249,8 +248,6 @@ class _HomeState extends State<Home> {
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-
-
                 new Container(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
