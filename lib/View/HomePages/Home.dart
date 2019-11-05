@@ -10,7 +10,6 @@ class Home extends StatefulWidget {
 }
 
 
-
 class _HomeState extends State<Home> {
 
 //  Future getAllPost() async{
@@ -52,13 +51,13 @@ class _HomeState extends State<Home> {
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
 
-        backgroundColor: Color(0xFF222240),
+      backgroundColor: Color(0xFF222240),
       //end of appbar
-
 
       //end drawer
       body: new ListView(
