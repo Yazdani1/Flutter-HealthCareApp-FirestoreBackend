@@ -108,12 +108,6 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
 
                             ),
                             IconSlideAction(
-                              caption: 'More',
-                              color: Colors.purple,
-                              icon: Icons.more_horiz,
-
-                            ),
-                            IconSlideAction(
                               caption: 'Delete',
                               color: Colors.red,
                               icon: Icons.delete,
