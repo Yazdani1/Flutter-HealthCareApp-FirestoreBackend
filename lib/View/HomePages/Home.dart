@@ -3,10 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'dart:async';
 import 'package:flutter_healthcareapp/View/DetailsPage/TopHealthTipsDetails.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => new _HomeState();
 }
+
+
+
 class _HomeState extends State<Home> {
 
 //  Future getAllPost() async{
@@ -52,7 +56,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new Scaffold(
 
-      backgroundColor: Color(0xFF222240),
+        backgroundColor: Color(0xFF222240),
       //end of appbar
 
 
