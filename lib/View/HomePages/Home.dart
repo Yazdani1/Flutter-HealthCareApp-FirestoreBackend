@@ -3,8 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'dart:async';
 import 'package:flutter_healthcareapp/View/DetailsPage/TopHealthTipsDetails.dart';
-
-
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => new _HomeState();
@@ -99,7 +97,7 @@ class _HomeState extends State<Home> {
                       'https://images.pexels.com/photos/139398/thermometer-headache-pain-pills-139398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
                   NetworkImage(
                       'https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
-                  NetworkImage(
+                  ExactAssetImage(
                       'https://images.pexels.com/photos/207601/pexels-photo-207601.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
                 ],
               ),
