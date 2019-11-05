@@ -96,6 +96,8 @@ class _HospitalListState extends State<HospitalList> {
                                         color: Colors.white
                                     ),
                                   ),
+
+                                  
                                   SizedBox(height: 5.0,),
                                   Text(snapshot.data[index].data["address"],
                                     maxLines: 1,
