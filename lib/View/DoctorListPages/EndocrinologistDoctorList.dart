@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_rounded_progress_bar/rounded_progress_bar_style.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_healthcareapp/View/HomePages/HealthTips.dart';
+import 'package:progress_indicators/progress_indicators.dart';
+import 'package:flutter_rounded_progress_bar/flutter_rounded_progress_bar.dart';
 
 class EndocrinologistDoctorList extends StatefulWidget {
   @override
@@ -11,7 +15,6 @@ class EndocrinologistDoctorList extends StatefulWidget {
 }
 
 class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
-
   Future getAllpost() async {
     var fr = Firestore.instance;
     QuerySnapshot snap = await fr.collection("MedicinDoctorList")
@@ -29,6 +32,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
     });
   }
 
+  double percent = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +73,12 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child: new CircularProgressIndicator(),
+                  child:HeartbeatProgressIndicator(
+                    child: Icon(Icons.library_books,
+                    color: Colors.green,
+                      size: 60.0,
+                    ),
+                  ),
                 );
               } else {
                 return RefreshIndicator(

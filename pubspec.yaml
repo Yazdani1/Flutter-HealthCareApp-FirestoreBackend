@@ -28,6 +28,9 @@ dependencies:
   curved_navigation_bar: ^0.3.1
   sliding_up_panel: ^0.3.6
   flutter_slidable: ^0.5.4
+  flutter_rounded_progress_bar: ^0.1.2
+  progress_indicators: ^0.1.4
+  flutter_progress_hud: ^1.0.2
 
 
 dev_dependencies:

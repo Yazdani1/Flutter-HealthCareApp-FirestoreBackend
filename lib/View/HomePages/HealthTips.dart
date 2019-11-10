@@ -40,7 +40,10 @@ class _HealthTipsState extends State<HealthTips> {
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
-                    child: CircularProgressIndicator(),
+                      child:Theme(
+                        data: Theme.of(context).copyWith(accentColor: Colors.black),
+                        child: new CircularProgressIndicator(),
+                      )
                   );
                 } else {
                   return ListView.builder(
