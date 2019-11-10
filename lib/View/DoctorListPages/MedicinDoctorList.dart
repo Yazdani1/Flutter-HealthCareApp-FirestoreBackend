@@ -57,14 +57,7 @@ class _MedicinDoctorListState extends State<MedicinDoctorList> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                    child: Container(
-                      child: new Text("Data Loading...",
-                        style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.white
-                        ),
-                      ),
-                    )
+                 child: CircularProgressIndicator(),
                 );
               } else {
                 return ListView.builder(

@@ -41,12 +41,7 @@ class _HospitalListState extends State<HospitalList> {
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child: Text("Data Loading..",
-                    style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.white
-                    ),
-                  ),
+                  child: CircularProgressIndicator(),
                 );
               } else {
                 return ListView.builder(
@@ -97,7 +92,7 @@ class _HospitalListState extends State<HospitalList> {
                                     ),
                                   ),
 
-                                  
+
                                   SizedBox(height: 5.0,),
                                   Text(snapshot.data[index].data["address"],
                                     maxLines: 1,

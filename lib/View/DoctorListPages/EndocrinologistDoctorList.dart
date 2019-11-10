@@ -69,12 +69,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child: Text("Data Loading..",
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.white
-                  ),
-                  ),
+                  child: new CircularProgressIndicator(),
                 );
               } else {
                 return RefreshIndicator(
