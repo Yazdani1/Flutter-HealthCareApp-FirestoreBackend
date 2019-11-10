@@ -31,9 +31,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
      getAllpost();
     });
   }
-
   double percent = 100;
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
