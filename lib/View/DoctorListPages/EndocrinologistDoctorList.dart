@@ -22,16 +22,20 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
     return snap.documents;
   }
 
-  var _refreshKey= GlobalKey<RefreshIndicatorState>();
+  var _refreshKey = GlobalKey<RefreshIndicatorState>();
 
-  Future<Null>onrefresh() async{
+  String snapshot;
+
+  Future<Null> onrefresh() async {
     await Future.delayed(Duration(seconds: 1));
     _refreshKey.currentState?.show(atTop: false);
     setState(() {
-     getAllpost();
+      getAllpost();
     });
   }
+
   double percent = 100;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -54,7 +58,6 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
       body: new Container(
 
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
@@ -71,9 +74,9 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child:HeartbeatProgressIndicator(
+                  child: HeartbeatProgressIndicator(
                     child: Icon(Icons.library_books,
-                    color: Colors.green,
+                      color: Colors.green,
                       size: 60.0,
                     ),
                   ),
@@ -113,8 +116,10 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
                               caption: 'Delete',
                               color: Colors.red,
                               icon: Icons.delete,
-                              onTap: (){
-                                Navigator.of(context).push(new MaterialPageRoute(builder: (context)=>HealthTips()));
+                              onTap: () {
+                                Navigator.of(context).push(
+                                    new MaterialPageRoute(
+                                        builder: (context) => HealthTips()));
                               },
                             ),
                           ],
@@ -145,10 +150,10 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
 //                              borderRadius: BorderRadius.circular(15.0)
 //                          ),
                               child: new Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment
+                                    .start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Expanded(
                                       flex: 2,
                                       child: new Container(
@@ -159,9 +164,10 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
                                             shape: BoxShape.circle,
                                             image: new DecorationImage(
                                                 fit: BoxFit.cover,
+
                                                 image: NetworkImage(
-                                                    snapshot.data[index]
-                                                        .data["image"]
+                                                  snapshot.data[index]
+                                                      .data["image"],
                                                 )
                                             )
                                         ),
@@ -169,13 +175,16 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
                                   ),
                                   SizedBox(width: 10.0,),
 
+                                  
                                   Expanded(
                                     flex: 3,
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment
                                           .start,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .center,
                                       children: <Widget>[
+
 
                                         Text(snapshot.data[index].data["name"],
                                           style: TextStyle(
@@ -210,11 +219,13 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
                                   Expanded(
                                     flex: 2,
                                     child: new Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .center,
                                       children: <Widget>[
 
                                         Text(
-                                          snapshot.data[index].data["experience"],
+                                          snapshot.data[index]
+                                              .data["experience"],
                                           style: TextStyle(
                                               fontSize: 20.0,
                                               color: Colors.white
@@ -236,8 +247,10 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
 
                                 ],
                               ),
-                            ),
-                          ),
+                            )
+                            ,
+                          )
+                          ,
                         );
                       }
                   ),
