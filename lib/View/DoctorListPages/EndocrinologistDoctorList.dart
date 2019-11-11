@@ -177,7 +177,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
 
                                   Expanded(
                                     flex: 3,
-                                    
+
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment
                                           .start,

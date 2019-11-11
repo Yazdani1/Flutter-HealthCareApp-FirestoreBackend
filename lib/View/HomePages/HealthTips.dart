@@ -34,7 +34,6 @@ class _HealthTipsState extends State<HealthTips> {
               ],
             ),
           ),
-
           child: FutureBuilder(
               future: getallHealthtips(),
               builder: (context, snapshot) {
