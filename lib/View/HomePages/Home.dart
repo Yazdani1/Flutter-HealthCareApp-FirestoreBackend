@@ -8,6 +8,7 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => new _HomeState();
 }
+
 class _HomeState extends State<Home> {
 
 //  Future getAllPost() async{
@@ -18,37 +19,50 @@ class _HomeState extends State<Home> {
 //  }
 
   // start Top Health tips firestore
-  StreamSubscription<QuerySnapshot>subscription;
-  List<DocumentSnapshot>snapshot;
-  CollectionReference collectionReference = Firestore.instance.collection(
-      "TopHealthTips");
 
-  //end top health tips firestore.
 
-  //top doctor list firestore
-  StreamSubscription<QuerySnapshot>doctor_subscription;
-  List<DocumentSnapshot>dtsnapshot;
-  CollectionReference dtcollection = Firestore.instance.collection("TopDoctor");
-
-  //end top doctor list firestore
-
-  @override
-  void initState() {
-    //health tips firestore
-    subscription = collectionReference.snapshots().listen((datasnap) {
-      setState(() {
-        snapshot = datasnap.documents;
-      });
-      //end health tips firestore
-
-      doctor_subscription = dtcollection.snapshots().listen((dtsnap) {
-        setState(() {
-          dtsnapshot = dtsnap.documents;
-        });
-      });
-    });
-    super.initState();
+  Future getHealthtips() async {
+    var firestore = Firestore.instance;
+    QuerySnapshot snapshot = await firestore.collection("TopHealthTips")
+        .getDocuments();
+    return snapshot.documents;
   }
+
+  Future getTopDoctor() async {
+    var firestore = Firestore.instance;
+    QuerySnapshot snapshot = await firestore.collection("TopDoctor")
+        .getDocuments();
+    return snapshot.documents;
+  }
+
+  Future<Null>getRefresh()async{
+
+    await Future.delayed(Duration(seconds: 3));
+
+    setState(() {
+      getHealthtips();
+    });
+
+  }
+
+
+//  @override
+//  void initState() {
+//    //health tips firestore
+//    subscription = collectionReference.snapshots().listen((datasnap) {
+//      setState(() {
+//        snapshot = datasnap.documents;
+//      });
+//      //end health tips firestore
+//
+//      doctor_subscription = dtcollection.snapshots().listen((dtsnap) {
+//        setState(() {
+//          dtsnapshot = dtsnap.documents;
+//        });
+//      });
+//    });
+//    super.initState();
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,119 +138,142 @@ class _HomeState extends State<Home> {
 
 
                 new Container(
-
                   height: 130.0,
-                  child: new ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: snapshot.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          elevation: 10.0,
-                          margin: EdgeInsets.only(left: 10.0),
-                          color: Color(0xFF262724),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-
-                          child: new Container(
-                            height: 130.0,
-                            width: 300.0,
-                            decoration: BoxDecoration(
-                              borderRadius: new BorderRadius.circular(15.0),
-                              gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                                colors: [
-                                  Colors.green[400],
-                                  Colors.brown[900],
-                                  Colors.deepOrange[600],
-                                  Colors.amber[900],
-                                ],
-                              ),
-                            ),
-                            child: new Row(
-                              children: <Widget>[
-                                new Expanded(
-                                  flex: 1,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                    child: new Image.network(
-                                      snapshot[index].data["image"],
-                                      height: 130.0,
-                                      fit: BoxFit.cover,
+                  child: FutureBuilder(
+                      future: getHealthtips(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(
+                              child: new CircularProgressIndicator()
+                          );
+                        } else {
+                          return RefreshIndicator(
+                            onRefresh: getRefresh,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: snapshot.data.length,
+                                itemBuilder: (context, index) {
+                                  return Card(
+                                    elevation: 10.0,
+                                    margin: EdgeInsets.only(left: 10.0),
+                                    color: Color(0xFF262724),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
                                     ),
-                                  ),
-                                ),
-                                new SizedBox(width: 10.0,),
-                                new Expanded(
-                                  flex: 3,
-                                  child: new Column(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start,
-                                    children: <Widget>[
 
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 5.0),
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.of(context).push(
-                                                new MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        TopHealthTipsDetails(
-                                                            snapshot[index])));
-                                          },
-                                          child: new Text(
-                                            snapshot[index].data["title"],
-                                            maxLines: 1,
-                                            style: TextStyle(
-                                                fontSize: 18.0,
-                                                color: Colors.white
+                                    child: new Container(
+                                      height: 130.0,
+                                      width: 300.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius: new BorderRadius.circular(
+                                            15.0),
+                                        gradient: LinearGradient(
+                                          begin: Alignment.topRight,
+                                          end: Alignment.bottomLeft,
+                                          colors: [
+                                            Colors.green[400],
+                                            Colors.brown[900],
+                                            Colors.deepOrange[600],
+                                            Colors.amber[900],
+                                          ],
+                                        ),
+                                      ),
+                                      child: new Row(
+                                        children: <Widget>[
+                                          new Expanded(
+                                            flex: 1,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(
+                                                  15.0),
+                                              child: new Image.network(
+                                                snapshot.data[index]
+                                                    .data["image"],
+                                                height: 130.0,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                      new SizedBox(height: 5.0,),
-                                      new Text(snapshot[index].data["content"],
-                                        maxLines: 3,
-                                        style: TextStyle(
-                                            fontSize: 16.0,
-                                            color: Colors.white
-                                        ),
-                                      ),
-                                      new SizedBox(height: 10.0,),
-                                      Align(
-                                        alignment: Alignment.bottomLeft,
-                                        child: new Container(
-                                          child: new Row(
-                                            children: <Widget>[
-                                              new Icon(Icons.remove_red_eye,
-                                                color: Colors.white,
-                                              ),
-                                              new SizedBox(width: 5.0,),
+                                          new SizedBox(width: 10.0,),
+                                          new Expanded(
+                                            flex: 3,
+                                            child: new Column(
+                                              crossAxisAlignment: CrossAxisAlignment
+                                                  .start,
+                                              children: <Widget>[
 
-                                              new Text(
-                                                snapshot[index].data["view"],
-                                                style: TextStyle(
-                                                    fontSize: 16.0,
-                                                    color: Colors.white
+                                                Padding(
+                                                  padding: const EdgeInsets.only(
+                                                      top: 5.0),
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      Navigator.of(context).push(
+                                                          new MaterialPageRoute(
+                                                              builder: (
+                                                                  context) =>
+                                                                  TopHealthTipsDetails(
+                                                                      snapshot
+                                                                          .data[index])));
+                                                    },
+                                                    child: new Text(
+                                                      snapshot.data[index]
+                                                          .data["title"],
+                                                      maxLines: 1,
+                                                      style: TextStyle(
+                                                          fontSize: 18.0,
+                                                          color: Colors.white
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
-                                              )
+                                                new SizedBox(height: 5.0,),
+                                                new Text(
+                                                  snapshot.data[index]
+                                                      .data["content"],
+                                                  maxLines: 3,
+                                                  style: TextStyle(
+                                                      fontSize: 16.0,
+                                                      color: Colors.white
+                                                  ),
+                                                ),
+                                                new SizedBox(height: 10.0,),
+                                                Align(
+                                                  alignment: Alignment.bottomLeft,
+                                                  child: new Container(
+                                                    child: new Row(
+                                                      children: <Widget>[
+                                                        new Icon(
+                                                          Icons.remove_red_eye,
+                                                          color: Colors.white,
+                                                        ),
+                                                        new SizedBox(width: 5.0,),
 
-                                            ],
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
+                                                        new Text(
+                                                          snapshot.data[index]
+                                                              .data["view"],
+                                                          style: TextStyle(
+                                                              fontSize: 16.0,
+                                                              color: Colors.white
+                                                          ),
+                                                        )
+
+                                                      ],
+                                                    ),
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                }
+
                             ),
-                          ),
-                        );
-
+                          );
+                        }
                       }
-
                   ),
                 ),
 
@@ -268,74 +305,89 @@ class _HomeState extends State<Home> {
 
                 new Container(
                   height: 230.0,
-                  child: new ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: dtsnapshot.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          elevation: 10.0,
-                          margin: EdgeInsets.only(left: 10.0),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)
-                          ),
-                          color: Color(0xFF272B4A),
-                          child: new Container(
-                            width: 220.0,
-                            decoration: BoxDecoration(
-                              borderRadius: new BorderRadius.circular(15.0),
-                              gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                                colors: [
-                                  Colors.green[400],
-                                  Colors.brown[900],
-                                  Colors.deepOrange[600],
-                                  Colors.amber[900],
-                                ],
-                              ),
-                            ),
-                            child: new Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  child: new Image.network(
-                                    dtsnapshot[index].data["image"],
-                                    height: 130.0,
-                                    width: 220.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                new SizedBox(height: 6.0,),
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: new Text(
-                                    dtsnapshot[index].data["title"],
-                                    maxLines: 1,
-                                    style: TextStyle(
-                                        fontSize: 16.0,
-                                        color: Colors.white
-                                    ),
-                                  ),
-                                ),
-                                new SizedBox(height: 5.0,),
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: new Text(
-                                    dtsnapshot[index].data["type"],
-                                    maxLines: 1,
-                                    style: TextStyle(
-                                        fontSize: 16.0,
-                                        color: Colors.amberAccent
-                                    ),
-                                  ),
-                                ),
+                  child: FutureBuilder(
+                    future: getTopDoctor(),
+                    builder: (context,snapshot) {
 
-                              ],
-                            ),
-                          ),
+                      if(snapshot.connectionState==ConnectionState.waiting){
+                        return Center(
+                            child: new CircularProgressIndicator()
+                        );
+                      }else {
+                        return ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (context, index) {
+                              return Card(
+                                elevation: 10.0,
+                                margin: EdgeInsets.only(left: 10.0),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15.0)
+                                ),
+                                color: Color(0xFF272B4A),
+                                child: new Container(
+                                  width: 220.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: new BorderRadius.circular(
+                                        15.0),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.topRight,
+                                      end: Alignment.bottomLeft,
+                                      colors: [
+                                        Colors.green[400],
+                                        Colors.brown[900],
+                                        Colors.deepOrange[600],
+                                        Colors.amber[900],
+                                      ],
+                                    ),
+                                  ),
+                                  child: new Column(
+                                    crossAxisAlignment: CrossAxisAlignment
+                                        .start,
+                                    children: <Widget>[
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(
+                                            10.0),
+                                        child: new Image.network(
+                                          snapshot.data[index].data["image"],
+                                          height: 130.0,
+                                          width: 220.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      new SizedBox(height: 6.0,),
+                                      Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: new Text(
+                                          snapshot.data[index].data["title"],
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              fontSize: 16.0,
+                                              color: Colors.white
+                                          ),
+                                        ),
+                                      ),
+                                      new SizedBox(height: 5.0,),
+                                      Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: new Text(
+                                          snapshot.data[index].data["type"],
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                              fontSize: 16.0,
+                                              color: Colors.amberAccent
+                                          ),
+                                        ),
+                                      ),
+
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }
                         );
                       }
+                    }
                   ),
                 )
 
