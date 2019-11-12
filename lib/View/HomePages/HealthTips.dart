@@ -17,6 +17,16 @@ class _HealthTipsState extends State<HealthTips> {
     return snap.documents;
   }
 
+  Future<Null>getRefresh()async{
+
+    await Future.delayed(Duration(seconds: 3));
+
+    setState(() {
+      getallHealthtips();
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -45,25 +55,29 @@ class _HealthTipsState extends State<HealthTips> {
                       )
                   );
                 } else {
-                  return ListView.builder(
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          height: 100.0,
-                          margin: EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            borderRadius: new BorderRadius.circular(15.0),
-                            gradient: LinearGradient(
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              colors: [
-                                Colors.green[400],
-                                //Colors.brown[900],
-                                Colors.deepOrange[600],
-                                Colors.amber[900],
-                              ],
+                  return RefreshIndicator(
+                    onRefresh: getRefresh,
+                    backgroundColor: Colors.blueGrey,
+                    color: Colors.white,
+                    child: ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            height: 100.0,
+                            margin: EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              borderRadius: new BorderRadius.circular(15.0),
+                              gradient: LinearGradient(
+                                begin: Alignment.topRight,
+                                end: Alignment.bottomLeft,
+                                colors: [
+                                  Colors.green[400],
+                                  //Colors.brown[900],
+                                  Colors.deepOrange[600],
+                                  Colors.amber[900],
+                                ],
+                              ),
                             ),
-                          ),
 //                          decoration: BoxDecoration(
 //                            borderRadius: BorderRadius.circular(15.0),
 //                            gradient: LinearGradient(
@@ -76,83 +90,84 @@ class _HealthTipsState extends State<HealthTips> {
 //                              ],
 //                            ),
 //                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
 
-                              new Expanded(
-                                flex: 1,
-                                child: Container(
-                                  margin: EdgeInsets.all(5.0),
+                                new Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    margin: EdgeInsets.all(5.0),
 //                                  decoration: BoxDecoration(
 //                                    //color: Color(0xFF60226D),
 //                                    shape: BoxShape.circle,
 //                                  ),
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child: Text("TIPS",
-                                      style: TextStyle(
-                                          fontSize: 20.0,
-                                          color: Colors.amber
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Text("TIPS",
+                                        style: TextStyle(
+                                            fontSize: 20.0,
+                                            color: Colors.amber
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(width: 2.0,),
-                              Container(
-                                width: 0.5,
-                                margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                                height: double.maxFinite,
-                                color: Colors.white,
-                              ),
+                                SizedBox(width: 2.0,),
+                                Container(
+                                  width: 0.5,
+                                  margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
+                                  height: double.maxFinite,
+                                  color: Colors.white,
+                                ),
 
-                              new Expanded(
-                                flex: 4,
-                                child: Container(
-                                  padding: EdgeInsets.all(6.0),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start,
-                                    children: <Widget>[
+                                new Expanded(
+                                  flex: 4,
+                                  child: Container(
+                                    padding: EdgeInsets.all(6.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start,
+                                      children: <Widget>[
 
-                                      InkWell(
-                                        onTap: () {
-                                          customDialog(context,
-                                              snapshot.data[index]
-                                                  .data["title"],
-                                              snapshot.data[index]
-                                                  .data["content"]
-                                          );
-                                        },
-                                        child: Text(
-                                          snapshot.data[index].data["title"],
-                                          maxLines: 1,
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              color: Colors.white
+                                        InkWell(
+                                          onTap: () {
+                                            customDialog(context,
+                                                snapshot.data[index]
+                                                    .data["title"],
+                                                snapshot.data[index]
+                                                    .data["content"]
+                                            );
+                                          },
+                                          child: Text(
+                                            snapshot.data[index].data["title"],
+                                            maxLines: 1,
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                color: Colors.white
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(height: 6.0,),
-                                      Text(snapshot.data[index].data["content"],
-                                        maxLines: 3,
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            color: Colors.white
-                                        ),
-                                      )
+                                        SizedBox(height: 6.0,),
+                                        Text(snapshot.data[index].data["content"],
+                                          maxLines: 3,
+                                          style: TextStyle(
+                                              fontSize: 14.0,
+                                              color: Colors.white
+                                          ),
+                                        )
 
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
 
-                            ],
-                          ),
-                        );
-                      }
+                              ],
+                            ),
+                          );
+                        }
+                    ),
                   );
                 }
               }
