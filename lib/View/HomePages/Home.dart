@@ -135,8 +135,6 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-
-
                 new Container(
                   height: 130.0,
                   child: FutureBuilder(
