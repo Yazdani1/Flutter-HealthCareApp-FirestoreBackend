@@ -145,7 +145,10 @@ class _HomeState extends State<Home> {
                           return Center(
                               child: new CircularProgressIndicator()
                           );
+
+
                         } else {
+                          
                           return RefreshIndicator(
                             onRefresh: getRefresh,
                             child: ListView.builder(
