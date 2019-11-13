@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           //start first container -- carosul slider
           new Container(
-            margin: EdgeInsets.all(5.0),
+            margin: EdgeInsets.all(6.0),
             height: 200.0,
             decoration: new BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0)
