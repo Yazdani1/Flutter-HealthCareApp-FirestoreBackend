@@ -116,9 +116,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           //end first container -- carousul slider
-
           //second container health tips
-
           new Container(
             margin: EdgeInsets.all(5.0),
             height: 190.0,
@@ -148,7 +146,7 @@ class _HomeState extends State<Home> {
 
 
                         } else {
-                          
+
                           return RefreshIndicator(
                             onRefresh: getRefresh,
                             child: ListView.builder(
