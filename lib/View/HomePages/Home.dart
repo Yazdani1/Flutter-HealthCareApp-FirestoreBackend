@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                 autoplay: true,
                 animationCurve: Curves.fastOutSlowIn,
                 animationDuration: Duration(milliseconds: 1000),
-                dotSize: 7.0,
+                dotSize: 8.0,
                 dotIncreasedColor: Colors.red,
                 dotBgColor: Colors.transparent,
                 dotPosition: DotPosition.bottomCenter,
