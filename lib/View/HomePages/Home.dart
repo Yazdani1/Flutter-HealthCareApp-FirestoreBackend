@@ -368,7 +368,7 @@ class _HomeState extends State<Home> {
                                             ),
                                           ),
                                         ),
-                                        new SizedBox(height: 5.0,),
+                                        new SizedBox(height: 7.0,),
                                         Padding(
                                           padding: const EdgeInsets.all(5.0),
                                           child: new Text(
