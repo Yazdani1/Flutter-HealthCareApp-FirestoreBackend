@@ -93,11 +93,9 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                                 ),
                               )
 
-
                             ],
                           ),
                         )
-
                       ],
                     ),
                   ),
@@ -118,7 +116,6 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                       ),
                     ),
                   )
-
                 ],
               ),
             ),
