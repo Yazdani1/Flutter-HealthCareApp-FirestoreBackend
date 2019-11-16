@@ -37,11 +37,8 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
             ),
           ),
           //first container end
-
-          new SizedBox(height: 10.0,),
-
+          new SizedBox(height: 9.0,),
           //second container start
-
           new Container(
             margin: EdgeInsets.all(10.0),
 
