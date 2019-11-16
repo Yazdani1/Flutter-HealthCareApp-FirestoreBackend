@@ -398,7 +398,7 @@ class _HomeState extends State<Home> {
           //end third container
         ],
       ),
-    
+
 //      bottomNavigationBar: Theme(
 //
 //      data: Theme.of(context).copyWith(

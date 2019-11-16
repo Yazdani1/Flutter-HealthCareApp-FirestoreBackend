@@ -25,9 +25,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
       backgroundColor: Color(0xFF222240),
       body: new ListView(
         children: <Widget>[
-
           //first container start
-
           new Container(
             margin: EdgeInsets.all(10.0),
             child: new ClipRRect(
