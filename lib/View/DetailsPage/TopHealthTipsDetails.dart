@@ -61,7 +61,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                 children: <Widget>[
 
                   new Container(
-                    margin: EdgeInsets.all(8.0),
+                    margin: EdgeInsets.all(7.0),
 
                     child: new Column(
                       children: <Widget>[
