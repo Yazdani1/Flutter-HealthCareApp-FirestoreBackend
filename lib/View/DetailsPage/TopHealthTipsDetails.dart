@@ -74,7 +74,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                             foregroundColor: Colors.white,
                           ),
                         ),
-                        new SizedBox(height: 7.0,),
+                        new SizedBox(height: 10.0,),
 
                         new Container(
                           child: new Row(
@@ -106,7 +106,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                         .of(context)
                         .size
                         .width / 1.5,
-                    
+
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.snapshot.data["title"],
