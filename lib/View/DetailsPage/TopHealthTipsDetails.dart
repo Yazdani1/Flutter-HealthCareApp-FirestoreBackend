@@ -121,8 +121,6 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
             ),
           ),
           //second container end
-
-          
           new SizedBox(height: 6.0,),
           //third container start
           new Container(
