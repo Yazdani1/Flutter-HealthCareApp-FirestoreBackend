@@ -81,7 +81,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                             children: <Widget>[
 
                               new Icon(Icons.remove_red_eye,
-                                color: Colors.white,
+                                color: Colors.green,
                               ),
 
                               new SizedBox(width: 5.0,),
