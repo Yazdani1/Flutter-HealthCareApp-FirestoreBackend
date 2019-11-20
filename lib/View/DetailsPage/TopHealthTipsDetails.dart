@@ -106,6 +106,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                         .of(context)
                         .size
                         .width / 1.5,
+                    
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.snapshot.data["title"],
