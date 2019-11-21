@@ -74,7 +74,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
                             foregroundColor: Colors.white,
                           ),
                         ),
-                        new SizedBox(height: 9.0,),
+                        new SizedBox(height: 11.0,),
 
                         new Container(
                           child: new Row(
