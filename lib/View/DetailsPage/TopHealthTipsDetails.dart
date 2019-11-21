@@ -88,7 +88,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
 
                               new Text(widget.snapshot.data["view"],
                                 style: TextStyle(
-                                    fontSize: 18.0,
+                                    fontSize: 20.0,
                                     color: Colors.white
                                 ),
                               )
