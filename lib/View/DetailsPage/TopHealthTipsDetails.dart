@@ -152,9 +152,7 @@ class _TopHealthTipsDetailsState extends State<TopHealthTipsDetails> {
             ),
           ),
 
-          //third container end
-
-
+          //third container end here
         ],
       ),
 
