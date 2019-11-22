@@ -84,7 +84,7 @@ class _HealthTipsState extends State<HealthTips> {
 //                              begin: Alignment.topRight,
 //                              end: Alignment.bottomLeft,
 //                              colors: [
-//                                Colors.deepOrange[400],
+//                                Colors.deepOrange[600],
 //                                Colors.amber[400],
 //                                //Color(0xFF60226D)
 //                              ],
