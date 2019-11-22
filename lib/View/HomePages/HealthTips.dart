@@ -64,7 +64,7 @@ class _HealthTipsState extends State<HealthTips> {
                         itemBuilder: (context, index) {
                           return Container(
                             height: 100.0,
-                            margin: EdgeInsets.all(8.0),
+                            margin: EdgeInsets.all(9.0),
                             decoration: BoxDecoration(
                               borderRadius: new BorderRadius.circular(15.0),
                               gradient: LinearGradient(
