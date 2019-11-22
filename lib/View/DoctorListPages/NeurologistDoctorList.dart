@@ -165,14 +165,14 @@ class _NeurologistDoctorListState extends State<NeurologistDoctorList> {
                                       Text(
                                         snapshot.data[index].data["experience"],
                                         style: TextStyle(
-                                            fontSize: 20.0,
+                                            fontSize: 21.0,
                                             color: Colors.white
                                         ),
                                       ),
                                       SizedBox(height: 5.0,),
                                       Text("Experience",
                                         style: TextStyle(
-                                            fontSize: 14.0,
+                                            fontSize: 15.0,
                                             color: Colors.white
                                         ),
                                       )
