@@ -165,7 +165,7 @@ class _DoctorListState extends State<DoctorList> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        new SizedBox(height: 10.0,),
+                        new SizedBox(height: 11.0,),
 
                         InkWell(
                           onTap: () {
@@ -175,7 +175,7 @@ class _DoctorListState extends State<DoctorList> {
                           },
                           child: Text("Endocrinologist Doctor",
                             style: TextStyle(
-                                fontSize: 16.0,
+                                fontSize: 17.0,
                                 color: Colors.lightGreen
                             ),
                           ),
