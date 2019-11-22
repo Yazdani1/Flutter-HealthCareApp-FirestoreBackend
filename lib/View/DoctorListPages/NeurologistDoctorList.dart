@@ -147,7 +147,7 @@ class _NeurologistDoctorListState extends State<NeurologistDoctorList> {
                                   ),
                                 ),
 
-                                new SizedBox(width: 10.0,),
+                                new SizedBox(width: 9.0,),
 
                                 Container(
                                   width: 0.5,
