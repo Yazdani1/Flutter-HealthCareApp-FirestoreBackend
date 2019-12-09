@@ -154,6 +154,7 @@ class _EndocrinologistDoctorListState extends State<EndocrinologistDoctorList> {
                                     .start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
+                                  
                                   Expanded(
                                       flex: 2,
                                       child: new Container(
