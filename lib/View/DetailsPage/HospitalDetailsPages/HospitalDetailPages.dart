@@ -259,7 +259,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                       ),
                     ),
                     //end third container
-
                     //start fourth container
                     Container(
                       height: 80.0,
@@ -276,7 +275,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                           ],
                         ),
                       ),
-
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -294,7 +292,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                                 color: Colors.white
                             ),
                           ),
-
                         ],
                       ),
                     ),
