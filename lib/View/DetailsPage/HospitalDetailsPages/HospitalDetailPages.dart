@@ -91,7 +91,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                 ),
               ),
               SizedBox(height: 5.0,),
-
               Container(
                 margin: EdgeInsets.all(6.0),
                 padding: EdgeInsets.all(10.0),
@@ -111,7 +110,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-
                     Text(widget.snapshot.data["name"],
                       style: TextStyle(
                           fontSize: 20.0,
@@ -119,14 +117,12 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                       ),
                     ),
                     SizedBox(height: 5.0,),
-
                     Text(widget.snapshot.data["address"],
                       style: TextStyle(
                           fontSize: 15.0,
                           color: Colors.white
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -164,7 +160,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
 //                          ],
 //                        ),
 //                      ),
-
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -182,12 +177,10 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                                 color: Colors.white
                             ),
                           ),
-
                         ],
                       ),
                     ),
                     //first container end
-
                     //Second container start...
                     Container(
                       height: 80.0,
@@ -222,7 +215,6 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                                 color: Colors.white
                             ),
                           ),
-
                         ],
                       ),
                     ),
