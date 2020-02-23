@@ -8,7 +8,6 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 class HospitalDetailPages extends StatefulWidget {
 
   DocumentSnapshot snapshot;
-
   HospitalDetailPages(this.snapshot);
 
   @override
@@ -16,7 +15,7 @@ class HospitalDetailPages extends StatefulWidget {
 }
 
 class _HospitalDetailPagesState extends State<HospitalDetailPages> {
-
+  
   Future getallDoctor() async {
     var fr = Firestore.instance;
     QuerySnapshot snap = await fr.collection("MedicinDoctorList")
@@ -685,15 +684,12 @@ class _HospitalDetailPagesState extends State<HospitalDetailPages> {
                       );
                     }
                 ),
-
               );
             }
           }
       ),
     );
   }
-
-
 }
 
 
